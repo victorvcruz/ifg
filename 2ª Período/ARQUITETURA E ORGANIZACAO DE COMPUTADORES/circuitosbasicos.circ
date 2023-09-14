@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="2.7.1" version="1.0">
+This file is intended to be loaded by Logisim (http://www.cburch.com/logisim/).
+<lib desc="#Wiring" name="0"/>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#Memory" name="4"/>
+  <lib desc="#I/O" name="5"/>
+  <lib desc="#Base" name="6">
+    <tool name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+  </lib>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool lib="6" map="Button2" name="Menu Tool"/>
+    <tool lib="6" map="Button3" name="Menu Tool"/>
+    <tool lib="6" map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool lib="6" name="Poke Tool"/>
+    <tool lib="6" name="Edit Tool"/>
+    <tool lib="6" name="Text Tool">
+      <a name="text" val=""/>
+      <a name="font" val="SansSerif plain 12"/>
+      <a name="halign" val="center"/>
+      <a name="valign" val="base"/>
+    </tool>
+    <sep/>
+    <tool lib="0" name="Pin">
+      <a name="tristate" val="false"/>
+    </tool>
+    <tool lib="0" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+      <a name="labelloc" val="east"/>
+    </tool>
+    <tool lib="1" name="NOT Gate"/>
+    <tool lib="1" name="AND Gate"/>
+    <tool lib="1" name="OR Gate"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="circuit" val="main"/>
+    <a name="clabel" val=""/>
+    <a name="clabelup" val="east"/>
+    <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(880,160)" to="(880,170)"/>
+    <wire from="(200,430)" to="(260,430)"/>
+    <wire from="(140,80)" to="(140,90)"/>
+    <wire from="(130,210)" to="(130,220)"/>
+    <wire from="(470,30)" to="(470,40)"/>
+    <wire from="(290,50)" to="(290,60)"/>
+    <wire from="(690,80)" to="(750,80)"/>
+    <wire from="(690,40)" to="(750,40)"/>
+    <wire from="(690,140)" to="(750,140)"/>
+    <wire from="(690,180)" to="(750,180)"/>
+    <wire from="(180,190)" to="(290,190)"/>
+    <wire from="(850,370)" to="(950,370)"/>
+    <wire from="(710,320)" to="(750,320)"/>
+    <wire from="(350,570)" to="(450,570)"/>
+    <wire from="(260,320)" to="(260,350)"/>
+    <wire from="(50,410)" to="(150,410)"/>
+    <wire from="(50,450)" to="(150,450)"/>
+    <wire from="(50,530)" to="(150,530)"/>
+    <wire from="(60,660)" to="(160,660)"/>
+    <wire from="(370,660)" to="(410,660)"/>
+    <wire from="(190,810)" to="(220,810)"/>
+    <wire from="(380,90)" to="(470,90)"/>
+    <wire from="(380,30)" to="(470,30)"/>
+    <wire from="(750,390)" to="(750,430)"/>
+    <wire from="(440,660)" to="(470,660)"/>
+    <wire from="(250,810)" to="(280,810)"/>
+    <wire from="(50,210)" to="(130,210)"/>
+    <wire from="(810,160)" to="(880,160)"/>
+    <wire from="(520,180)" to="(600,180)"/>
+    <wire from="(570,410)" to="(650,410)"/>
+    <wire from="(570,450)" to="(650,450)"/>
+    <wire from="(200,550)" to="(270,550)"/>
+    <wire from="(210,680)" to="(280,680)"/>
+    <wire from="(60,790)" to="(130,790)"/>
+    <wire from="(60,830)" to="(130,830)"/>
+    <wire from="(370,780)" to="(440,780)"/>
+    <wire from="(370,820)" to="(440,820)"/>
+    <wire from="(500,550)" to="(570,550)"/>
+    <wire from="(260,350)" to="(330,350)"/>
+    <wire from="(260,390)" to="(330,390)"/>
+    <wire from="(700,430)" to="(750,430)"/>
+    <wire from="(200,320)" to="(260,320)"/>
+    <wire from="(140,30)" to="(140,40)"/>
+    <wire from="(130,160)" to="(130,170)"/>
+    <wire from="(470,80)" to="(470,90)"/>
+    <wire from="(750,390)" to="(790,390)"/>
+    <wire from="(750,350)" to="(790,350)"/>
+    <wire from="(390,370)" to="(500,370)"/>
+    <wire from="(750,320)" to="(750,350)"/>
+    <wire from="(380,180)" to="(490,180)"/>
+    <wire from="(50,570)" to="(90,570)"/>
+    <wire from="(60,700)" to="(100,700)"/>
+    <wire from="(370,700)" to="(470,700)"/>
+    <wire from="(50,300)" to="(150,300)"/>
+    <wire from="(50,340)" to="(150,340)"/>
+    <wire from="(350,530)" to="(390,530)"/>
+    <wire from="(190,60)" to="(290,60)"/>
+    <wire from="(120,570)" to="(150,570)"/>
+    <wire from="(130,700)" to="(160,700)"/>
+    <wire from="(420,530)" to="(450,530)"/>
+    <wire from="(50,30)" to="(140,30)"/>
+    <wire from="(50,90)" to="(140,90)"/>
+    <wire from="(260,390)" to="(260,430)"/>
+    <wire from="(500,800)" to="(590,800)"/>
+    <wire from="(50,160)" to="(130,160)"/>
+    <wire from="(520,680)" to="(590,680)"/>
+    <wire from="(570,300)" to="(650,300)"/>
+    <wire from="(570,340)" to="(650,340)"/>
+    <wire from="(810,60)" to="(890,60)"/>
+    <comp lib="0" loc="(50,530)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="0" loc="(50,570)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(50,340)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(730,750)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(730,600)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="5" loc="(290,50)" name="LED"/>
+    <comp lib="0" loc="(50,30)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(380,30)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="6" loc="(464,513)" name="Text">
+      <a name="text" val="A &lt; B"/>
+    </comp>
+    <comp lib="1" loc="(810,160)" name="NOR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(500,550)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="5" loc="(590,800)" name="LED">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="0" loc="(50,210)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(60,660)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="1" loc="(810,60)" name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(350,530)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="1" loc="(120,570)" name="NOT Gate"/>
+    <comp lib="1" loc="(500,800)" name="XOR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(380,180)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(60,790)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="1" loc="(190,60)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(420,530)" name="NOT Gate"/>
+    <comp lib="0" loc="(60,700)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(570,340)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="1" loc="(700,430)" name="OR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(60,830)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="1" loc="(520,180)" name="NOT Gate"/>
+    <comp lib="6" loc="(458,763)" name="Text">
+      <a name="text" val="A != B"/>
+    </comp>
+    <comp lib="0" loc="(50,300)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="5" loc="(280,810)" name="LED">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="0" loc="(800,600)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="0" loc="(50,160)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(50,450)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="D"/>
+    </comp>
+    <comp lib="1" loc="(190,810)" name="XOR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="6" loc="(172,639)" name="Text">
+      <a name="text" val="A &gt;= B"/>
+    </comp>
+    <comp lib="1" loc="(180,190)" name="OR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="5" loc="(600,180)" name="LED"/>
+    <comp lib="0" loc="(50,410)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="C"/>
+    </comp>
+    <comp lib="5" loc="(280,680)" name="LED">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="6" loc="(148,773)" name="Text">
+      <a name="text" val="A = B"/>
+    </comp>
+    <comp lib="1" loc="(200,320)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="5" loc="(950,370)" name="LED">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="0" loc="(370,660)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="1" loc="(210,680)" name="OR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(530,60)" name="XOR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(570,300)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="6" loc="(164,513)" name="Text">
+      <a name="text" val="A &gt; B"/>
+    </comp>
+    <comp lib="0" loc="(50,90)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="5" loc="(270,550)" name="LED">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="1" loc="(250,810)" name="NOT Gate"/>
+    <comp lib="6" loc="(479,644)" name="Text">
+      <a name="text" val="A &lt;= B"/>
+    </comp>
+    <comp lib="5" loc="(500,370)" name="LED"/>
+    <comp lib="0" loc="(370,820)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="1" loc="(850,370)" name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(570,450)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="D"/>
+    </comp>
+    <comp lib="1" loc="(200,550)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="5" loc="(570,550)" name="LED">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="0" loc="(370,780)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="1" loc="(520,680)" name="OR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="5" loc="(590,680)" name="LED">
+      <a name="facing" val="east"/>
+    </comp>
+    <comp lib="0" loc="(800,750)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="0" loc="(370,700)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(730,670)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="1" loc="(390,370)" name="NAND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="1" loc="(130,700)" name="NOT Gate"/>
+    <comp lib="0" loc="(800,670)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="5" loc="(290,190)" name="LED"/>
+    <comp lib="1" loc="(440,660)" name="NOT Gate"/>
+    <comp lib="1" loc="(710,320)" name="XOR Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+    <comp lib="0" loc="(350,570)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(730,520)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="0" loc="(380,90)" name="Pin">
+      <a name="tristate" val="false"/>
+    </comp>
+    <comp lib="0" loc="(800,520)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
+    <comp lib="0" loc="(570,410)" name="Pin">
+      <a name="tristate" val="false"/>
+      <a name="label" val="C"/>
+    </comp>
+    <comp lib="1" loc="(200,430)" name="AND Gate">
+      <a name="inputs" val="2"/>
+    </comp>
+  </circuit>
+</project>
