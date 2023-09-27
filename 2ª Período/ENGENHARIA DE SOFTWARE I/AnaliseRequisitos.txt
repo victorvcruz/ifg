@@ -1,0 +1,28 @@
+Fecha a conta, Primo!
+
+Aplicatvio web que possa ser utilizado mobile e pc com  o intuito de anotar pedidos, isto é, comandas. 
+Permitindo o cadastro de produtos, precificação, mesas/contas, funcionários.
+
+Atores:
+- Admin
+- Garçom
+- Cozinheiro
+- Cliente
+
+Requisitos:
+1 - Cadastrar ou remover funcionários, garçom ou cozinheiro
+2 - Cadastrar ou remover mesas, com identificação
+3 - Cadastrar ou remover produtos, com preço e nome
+4 - Cadastrar comandas
+5 - Permitir linkar produtos com comandas, mesas e produtos
+6 - Permitir fechar comandas
+7 - Permitir abrir comandas
+8 - Cozinha possui interface para vizualização de comandas
+9 - Cozinha pode iniciar preparo
+10 - Cozinha pode finalizar preparo
+11 - Garçom recebe notificação que pedido está pronto para entrega na mesa
+12 - Interface na mesa para chamar garçom
+13 - Cadastrar possíveis adicionais para determinado produto, com preço, nome e limite 
+14 - Aba com cardápio interativo para adicionar produtos a uma mesa
+15 - Ao finalizar a conta, aplicativo disponibiliza a conta(papel) com preço da comanda e pedidos.
+16 - Admin consegue visualizar todos pedidos feitos
