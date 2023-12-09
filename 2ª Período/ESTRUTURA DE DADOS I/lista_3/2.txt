@@ -1,0 +1,8 @@
+
+1. empilha(q, desempilha(p))
+2. empilha(r, desempilha(p))
+3. empilha(q, desempilha(p))
+4. empilha(r, desempilha(p))
+5. empilha(p, desempilha(q))
+6. empilha(r, desempilha(q))
+7. empilha(r, desempilha(p))

@@ -1,0 +1,14 @@
+a)
+p->prox = lista->prox;
+lista->prox = p;
+
+b)
+fim->prox = p;
+fim = p;
+
+c)
+fim = p;
+
+
+
+

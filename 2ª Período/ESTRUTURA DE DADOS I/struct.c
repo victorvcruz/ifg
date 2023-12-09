@@ -93,7 +93,7 @@ void menu(){
   printf("------------------------\n");
   printf("------------------------\n");
   printf("0 - sair\n");
-  printf("1 - criar aluno\n");
+  printf("1.txt - criar aluno\n");
   printf("2 - exibir aluno criado\n");
   printf("3 - add aluno na sala\n");
   printf("4 - remover aluno da sala\n");

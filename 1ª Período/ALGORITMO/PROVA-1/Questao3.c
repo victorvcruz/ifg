@@ -25,7 +25,7 @@ int main() {
         }
     }
 
-    printf("Ordenar:\nForma crescente = 1\nForma decrescente = 2\n");
+    printf("Ordenar:\nForma crescente = 1.txt\nForma decrescente = 2\n");
     scanf("%d", &ordem);
 
     if (ordem == 1) {
