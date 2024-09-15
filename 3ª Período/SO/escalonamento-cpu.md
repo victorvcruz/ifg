@@ -162,9 +162,9 @@ gantt
         dateFormat HH:mm
     axisFormat %H:%M
     section Processos
-        P1 :a1, 00:00, 1m
-        P2 :a2, after a1, 2m
-        P3 :a3, after a2, 3m
+        P3 :a1, 00:00, 1m
+        P1 :a2, after a1, 2m
+        P2 :a3, after a2, 3m
 ```
 
 De acordo com o gráfico acima, o processo P1 é executado primeiro, pois tem o menor tempo de execução. Em seguida, o processo P2 é executado e, finalmente, o processo P3.
@@ -219,10 +219,8 @@ gantt
         P1 :a3, after a2, 2m
         P2 :a4, after a3, 2m
     section Fila 2
-        P3 :a5, 00:00, 1m
+        P3 :a5, after a4, 1m
         P4 :a6, after a5, 2m
-        P3 :a7, after a6, 1m
-        P4 :a8, after a7, 2m
 ```
 
 De acordo com o gráfico acima, os processos P1 e P2 são executados na Fila 1 com o algoritmo Round Robin. Os processos P3 e P4 são executados na Fila 2 com o algoritmo SJN.
