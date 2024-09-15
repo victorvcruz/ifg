@@ -1,4 +1,11 @@
-# Sumário
+
+# Escalonamento de CPU
+
+O escalonamento de CPU é uma técnica utilizada para alocar processos na CPU de forma eficiente. O escalonamento é uma das atividades mais importantes do sistema operacional, pois é responsável por decidir qual processo será executado em seguida.
+
+---
+
+## Sumário
 
 - [O que é CPU?](#o-que-é-cpu)
 - [O que é um processo?](#o-que-é-um-processo)
@@ -31,11 +38,6 @@
     - [Quantum de Tempo](#quantum-de-tempo)
     - [Starvation](#starvation)
     - [Preempção](#preempção)
-
-
-# Escalonamento de CPU
-
-O escalonamento de CPU é uma técnica utilizada para alocar processos na CPU de forma eficiente. O escalonamento é uma das atividades mais importantes do sistema operacional, pois é responsável por decidir qual processo será executado em seguida.
 
 ---
 
