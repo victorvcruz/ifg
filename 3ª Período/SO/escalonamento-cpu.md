@@ -263,6 +263,9 @@ Em sistemas operacionais modernos, os processos são compostos por threads, que 
 
 Em sistemas multicore, o escalonamento de CPU é mais complexo, pois existem várias CPUs disponíveis para executar processos. O sistema operacional deve decidir em qual núcleo de CPU um processo será executado.
 
+Uma grande desvantagem é que mover um processo de um núcleo para outro pode causar uma perda de desempenho devido à perda de afinidade de cache. 
+> A afinidade de cache é a capacidade de um processo de acessar dados armazenados no cache de um núcleo específico.
+
 ### Multiprocessamento Assimétrico
 
 Cada núcleo de CPU tem uma função específica. Por exemplo, um núcleo pode ser dedicado a tarefas de sistema, enquanto outro núcleo pode ser dedicado a tarefas de usuário. O escalonamento de CPU em sistemas de multiprocessamento assimétrico deve levar em consideração as características de cada núcleo.
@@ -276,6 +279,64 @@ Todos os núcleos de CPU têm a mesma função e podem executar qualquer tipo de
 ### Afinidade de CPU
 
 É a capacidade de um processo ou thread de ser executado em um núcleo de CPU específico. A afinidade de CPU pode ser usada para otimizar o desempenho do sistema, alocando tarefas a núcleos específicos com base em suas características.
+
+### Alocação de Processos em Sistemas Multicore
+
+Em sistemas multicore, o escalonamento de CPU deve levar em consideração a distribuição de tarefas entre os núcleos de CPU disponíveis. O sistema operacional deve decidir em qual núcleo de [CPU](#o-que-é-cpu) um processo será executado com base em vários critérios, como a carga de trabalho do núcleo, a [afinidade de CPU](#afinidade-de-cpu) do processo e a otimização do desempenho do sistema.
+
+#### Escalonamento com Afinidade
+
+- Imagine que temos um processo P1 que executou várias vezes no núcleo 1, e um processo P2 que foi escalonado no núcleo 2.
+- Se P1 for escalonado novamente, o sistema preferirá colocá-lo no núcleo 1 devido à afinidade de CPU (suas informações ainda podem estar no cache daquele núcleo).
+- Se o núcleo 1 estiver ocupado e o núcleo 2 estiver livre, o sistema poderá mover P1 para o núcleo 2, sacrificando a afinidade de cache para evitar ociosidade.
+
+```mermaid
+sequenceDiagram
+    participant P1
+    participant Núcleo 1
+    participant Núcleo 2
+    participant SO
+
+    Note over P1, Núcleo 1: P1 foi escalonado antes no Núcleo 1
+    SO->>P1: Solicita execução de P1
+    SO->> Núcleo 1: Verifica disponibilidade do Núcleo 1
+     Núcleo 1-->>SO: Núcleo 1 ocupado
+    SO->>Núcleo 2: Verifica disponibilidade do Núcleo 2
+    Núcleo 2-->>SO: Núcleo 2 livre
+    SO->>P1: Realoca P1 para o Núcleo 2
+    P1->>Núcleo 2: Executa P1 no Núcleo 2
+```
+
+#### Balanceamento de Carga
+
+- O balanceamento de carga é um mecanismo usado para distribuir tarefas de forma equitativa entre os núcleos de CPU disponíveis.
+
+- O sistema operacional monitora a carga de trabalho de cada núcleo e redistribui as tarefas conforme necessário para garantir que todos os núcleos sejam utilizados de forma eficiente.
+
+- O balanceamento de carga pode ser feito de forma estática (com base em regras predefinidas) ou dinâmica (com base na carga de trabalho em tempo real).
+
+```mermaid
+sequenceDiagram
+    participant Núcleo 1
+    participant Núcleo 2
+    participant SO
+
+    SO->>Núcleo 1: Monitora carga de trabalho
+    Núcleo 1-->>SO: Carga de trabalho alta
+    SO->>Núcleo 2: Monitora carga de trabalho
+    Núcleo 2-->>SO: Carga de trabalho baixa
+    SO->>Núcleo 1: Realoca tarefas para Núcleo 2
+    Núcleo 1->>Núcleo 2: Realoca tarefas
+```
+
+Se o núcleo 1 tiver uma fila de processos muito longa e o núcleo 2 estiver subutilizado, o sistema pode decidir transferir alguns processos do núcleo 1 para o núcleo 2, a fim de equilibrar a carga.
+
+#### Escalonamento Global e Escalonamento Local
+
+- No escalonamento global, todos os núcleos compartilham uma única fila global de processos prontos para serem executados. O sistema escolhe um processo da fila e o aloca para qualquer núcleo disponível.
+
+- No escalonamento local, cada núcleo possui sua própria fila de processos. O núcleo executa os processos de sua fila local, evitando a troca entre diferentes núcleos.
+
 
 ## Conceitos Importantes
 
