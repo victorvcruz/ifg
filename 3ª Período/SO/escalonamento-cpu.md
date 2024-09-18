@@ -335,8 +335,35 @@ Se o núcleo 1 tiver uma fila de processos muito longa e o núcleo 2 estiver sub
 
 - No escalonamento global, todos os núcleos compartilham uma única fila global de processos prontos para serem executados. O sistema escolhe um processo da fila e o aloca para qualquer núcleo disponível.
 
+```mermaid
+gantt
+        dateFormat HH:mm
+    axisFormat %H:%M
+    section Fila 
+        P1 :a1, 00:00, 2m
+        P2 :a2, after a1, 2m
+        P4 :a3, after a2, 2m
+        P3 :a5, 00:00, 1m
+        P1 :a6, after a3, 2m
+```
+
 - No escalonamento local, cada núcleo possui sua própria fila de processos. O núcleo executa os processos de sua fila local, evitando a troca entre diferentes núcleos.
 
+```mermaid
+gantt
+        dateFormat HH:mm
+    axisFormat %H:%M
+    section Núcleo 1
+        P1 :a1, 00:00, 2m
+        P2 :a2, after a1, 2m
+        P1 :a3, after a2, 2m
+    section Núcleo 2
+        P3 :a5, 00:00, 1m
+        P4 :a6, after a5, 2m
+        P5 :a7, after a6, 3m
+``` 
+
+---
 
 ## Conceitos Importantes
 
