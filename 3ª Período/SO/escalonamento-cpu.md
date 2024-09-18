@@ -342,7 +342,7 @@ gantt
     section Fila 
         P1 :a1, 00:00, 2m
         P2 :a2, after a1, 2m
-        P1 :a3, after a2, 2m
+        P4 :a3, after a2, 2m
         P3 :a5, 00:00, 1m
         P1 :a6, after a1, 2m
 ```
