@@ -1,0 +1,9 @@
+mkdir pasta1
+mkdir pasta2
+touch redes.txt
+ifconfig >> pasta1/redes.txt
+vi pasta1/redes.txt
+cp pasta1/redes.txt pasta2
+rm -rf pasta1
+touch historico.txt
+
