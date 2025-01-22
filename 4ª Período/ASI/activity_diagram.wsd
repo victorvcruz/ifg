@@ -1,0 +1,58 @@
+@startuml
+start
+:Realiza cadastro;
+if (CPF já cadastrado?) then (sim)
+  :Exibe mensagem de erro;
+  detach
+else (não)
+  :Cadastra paciente;
+endif
+
+:Busca médicos disponíveis;
+if (Médicos encontrados?) then (sim)
+  :Seleciona médico;
+  :Visualiza horários disponíveis;
+  if (Horário disponível?) then (sim)
+    :Realiza agendamento;
+    :Gera confirmação por e-mail e SMS;
+    end
+  else (não)
+    :Solicita escolha de horário alternativo;
+    end
+  endif
+else (não)
+  :Exibe mensagem de erro;
+  :Sugere outros critérios de busca;
+stop
+
+start 
+:Acessa agenda;
+:Visualiza consultas agendadas;
+:Bloqueia horários;
+switch (Gerencia consultas)
+  case (Cancela)
+    :Cancela consulta;
+  case (Reagenda)
+    :Reagenda consulta;
+endswitch
+stop
+
+
+start  
+while (Há consultas?);  
+if (Consulta agendada?) then  
+    if (Um dia antes da consulta?) then  
+        :Envia lembrete;  
+    endif  
+endif  
+endwhile 
+stop  
+
+start  
+while (Há agendas?)  
+if (Agenda alterada?) then (sim)  
+    :Notifica paciente;  
+endif  
+endwhile
+stop
+@enduml
