@@ -1,0 +1,39 @@
+1-
+a)
+    Cidadao
+    PK  id
+        nome_completo
+        data_nascimento
+        cpf
+        endereco
+
+    Candidato
+    PK  id
+        cidadao_id 
+        partido_id
+        eleicao_id
+        cargo
+
+    Eleicao
+    PK  id
+        tipo
+
+    Partidos
+    PK  id
+        nome_completo
+        sigla
+        data_fundacao
+
+    Votos
+    PK  id
+        cidadao_id 
+        candidato_id 
+        data 
+
+b)
+candidato 1---1 cidadao 
+candidato n---1 partido 
+
+votos n---1 cidadao 
+votos 1---n candidato
+votos 1---n eleicao 
