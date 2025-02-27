@@ -1,0 +1,22 @@
+R1(config)#aaa new-model 
+R1(config)#aaa au
+R1(config)#aaa aut
+R1(config)#aaa authe
+R1(config)#aaa authentication login defaul
+R1(config)#aaa authentication login default grou
+R1(config)#aaa authentication login default group raid
+R1(config)#aaa authentication login default group radiu
+R1(config)#aaa authentication login default group radius local
+R1(config)#rad
+R1(config)#radi
+R1(config)#radius
+R1(config)#radius-s
+R1(config)#radius-se
+R1(config)#radius-ser
+R1(config)#radius-server hos
+R1(config)#radius-server host 192.167.0.2 auth-port 1645 key ifg
+R1(config)#
+R1(config)#username torugo password torugo
+R1(config)#exit
+R1#
+%SYS-5-CONFIG_I: Configured from console by console
