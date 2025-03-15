@@ -61,3 +61,7 @@ db.CD.updateOne(
 
 --3) Escreva o comando para remover todas as músicas cujo tempo de duração seja inferior a 2 minutos e 30 segundos.
 
+--Script SQL (PostgreSQl) – Valor 0,2:
+
+DELETE FROM Musica
+WHERE Duracao < '00:02:30';
