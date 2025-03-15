@@ -113,6 +113,8 @@ db.Musica_tem_Autor.insertOne({
 
 --5) Escreva o comando para atualizar o contato da gravadora "BMG" para "Carlos".
 
+--Script SQL (PostgreSQl) – Valor 0,2:
 
+UPDATE Gravadora
 
 
