@@ -71,3 +71,5 @@ WHERE idMusica IN (SELECT idMusica FROM Musica WHERE Duracao < '00:02:30');
 
 DELETE FROM Musica WHERE Duracao < '00:02:30';
 
+--Script MQL (MongoDB) – Valor 0,1:
+
