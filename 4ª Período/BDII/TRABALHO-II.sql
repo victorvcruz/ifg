@@ -63,5 +63,11 @@ db.CD.updateOne(
 
 --Script SQL (PostgreSQl) – Valor 0,2:
 
-DELETE FROM Musica
-WHERE Duracao < '00:02:30';
+DELETE FROM Musica_tem_Autor
+WHERE idMusica IN (SELECT idMusica FROM Musica WHERE Duracao < '00:02:30');
+
+DELETE FROM Faixa
+WHERE idMusica IN (SELECT idMusica FROM Musica WHERE Duracao < '00:02:30');
+
+DELETE FROM Musica WHERE Duracao < '00:02:30';
+
