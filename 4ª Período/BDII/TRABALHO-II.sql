@@ -86,6 +86,12 @@ db.Musica.find({ Duracao: { $lt: '00:03:40' } }).forEach(function(doc) {
 
 --Script SQL (PostgreSQl) – Valor 0,2:
 
+INSERT INTO Musica (idMusica, NomeMusica, Duracao) VALUES (92, 'Travessia', '00:03:30');
+
+INSERT INTO Faixa (Numero_Faixa, idCD, idMusica) VALUES (1, 1, 92);
+
+INSERT INTO Musica_tem_Autor (idAutor, idMusica) VALUES (1, 92);
+
 
 
 
