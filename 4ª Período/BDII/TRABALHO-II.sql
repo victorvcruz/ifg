@@ -92,6 +92,8 @@ INSERT INTO Faixa (Numero_Faixa, idCD, idMusica) VALUES (1, 1, 92);
 
 INSERT INTO Musica_tem_Autor (idAutor, idMusica) VALUES (1, 92);
 
+--Script MQL (MongoDB) – Valor 0,1:
+
 
 
 
