@@ -19,16 +19,19 @@ VALUES
 --Script MQL (MongoDB) – Valor 0,1:
 
 db.Autor.insertOne({
+    iDAutor: 1,
     Nome_Autor: 'Milton Nascimento'
 });
 
 db.Musica.insertMany([
     {
-        NomeMusica: 'Musica 1',
+        idMusica: 1,
+        NomeMusica: 'Maria Maria',
         Duracao: '00:03:30'
     },
     {
-        NomeMusica: 'Musica 2',
+        idMusica: 2,
+        NomeMusica: 'Travessia',
         Duracao: '00:03:30'
     }
 ]);
