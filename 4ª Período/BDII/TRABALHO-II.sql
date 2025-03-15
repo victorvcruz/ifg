@@ -16,4 +16,4 @@ VALUES
     (1, 1),
     (1, 2);
 
---
+--Script MQL (MongoDB) – Valor 0,1:
