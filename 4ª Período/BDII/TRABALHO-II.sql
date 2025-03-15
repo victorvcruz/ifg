@@ -164,11 +164,40 @@ WHERE A.Nome_Autor = 'Renato Russo';
 
 CREATE TABLE cd_log (
     idLog SERIAL PRIMARY KEY,
-    idCD INTEGER NOT NULL,
-    Nome_CD VARCHAR(60) NOT NULL,
-    Dt_Lancamento DATE NOT NULL,
-    Preco_Venda DECIMAL(14,2),
-    Log_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    idCD INTEGER,
+    Nome_CD VARCHAR(60),
+    Dt_Lancamento DATE,
+    Preco_Venda DECIMAL(14, 2),
+    idGravadora INTEGER,
+    Data_Log TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE OR REPLACE FUNCTION controle_insercao_cd()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.Dt_Lancamento > CURRENT_DATE THEN
+        RAISE EXCEPTION 'A data de lançamento não pode ser no futuro';
+    END IF;
+
+    IF NEW.Preco_Venda < 5 THEN
+        RAISE EXCEPTION 'O preço de venda não pode ser menor que 5 reais';
+    END IF;
+
+    IF EXISTS (SELECT 1 FROM Gravadora WHERE idGravadora = NEW.idGravadora AND NomeGravadora = 'SOM LIVRE')
+       AND NEW.Preco_Venda < 10 THEN
+        RAISE EXCEPTION 'Para a gravadora "SOM LIVRE", o preço de venda não pode ser inferior a 10 reais';
+    END IF;
+
+    INSERT INTO cd_log(idCD, Nome_CD, Dt_Lancamento, Preco_Venda, idGravadora)
+    VALUES (NEW.idCD, NEW.Nome_CD, NEW.Dt_Lancamento, NEW.Preco_Venda, NEW.idGravadora);
+
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER before_insert_cd
+BEFORE INSERT ON CD
+FOR EACH ROW
+EXECUTE FUNCTION controle_insercao_cd();
 
 
