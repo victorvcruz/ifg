@@ -24,7 +24,7 @@ db.Autor.insertOne({
 
 db.Musica.insertMany([
     {
-        NomeMusica: 'Maria Maria',
+        NomeMusica: 'Musica',
         Duracao: '00:03:30'
     },
     {
