@@ -76,7 +76,9 @@ DELETE FROM Musica WHERE Duracao < '00:02:30';
 
 --Script MQL (MongoDB) – Valor 0,1:
 
-db.Musica.deleteMany({
-    Duracao: { $lt: '00:02:30' }
+db.Musica.find({ Duracao: { $lt: '00:03:40' } }).forEach(function(doc) {
+    db.Musica_tem_Autor.deleteMany({ idMusica: doc.idMusica });
+    db.Faixa.deleteMany({ idMusica: doc.idMusica });
+    db.Musica.deleteOne({ idMusica: doc.idMusica });
 });
 
