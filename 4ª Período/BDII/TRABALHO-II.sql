@@ -51,3 +51,5 @@ db.Musica_tem_Autor.insertMany([
 UPDATE CD
 SET Preco_Venda = 12.00
 WHERE Nome_CD = 'Perfil';
+
+--
