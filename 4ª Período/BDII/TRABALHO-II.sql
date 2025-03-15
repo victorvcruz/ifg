@@ -115,6 +115,7 @@ db.Musica_tem_Autor.insertOne({
 
 --Script SQL (PostgreSQl) – Valor 0,2:
 
-UPDATE Gravadora
+UPDATE Gravadora 
+
 
 
