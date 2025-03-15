@@ -44,3 +44,7 @@ db.Musica_tem_Autor.insertMany([
     }
 ]);
 
+--2) Escreva o comando para atualizar o preço do CD "Perfil" para R$12,00.
+
+--Script SQL (PostgreSQl) – Valor 0,2:
+
