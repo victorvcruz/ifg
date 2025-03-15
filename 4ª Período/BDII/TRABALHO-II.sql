@@ -128,6 +128,9 @@ db.Gravadora.updateOne(
 
 --6) Escreva o comando para remover todos os CDs lançados antes de 1990.
 
+--Script SQL (PostgreSQl) – Valor 0,2:
 
+DELETE FROM CD
+WHERE Ano_Lancamento < 1990;
 
 
