@@ -160,3 +160,5 @@ WHERE A.Nome_Autor = 'Renato Russo';
 --b) o preço de venda (preco_venda) não seja menor que 5 reais.
 --c) se o CD for lançado pela gravadora "SOM LIVRE", seu preço não pode ser inferior a 10 reais.
 --d) sempre que um novo CD for adicionado, um log deve ser armazenado em uma tabela separada (cd_log).
+
+
