@@ -141,3 +141,10 @@ db.CD.deleteMany({ Dt_Lancamento: { $lt: new Date('1990-01-01') } });
 
 
 
+π 
+NomeMusica
+​
+ (Musica⋈M 
+u
+ˊ
+ sicas_de_Renato_Russo)
