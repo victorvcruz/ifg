@@ -31,7 +31,7 @@ db.Musica.insertMany([
     },
     {
         idMusica: 91,
-        NomeMusica: 'Travessia',
+        NomeMusica: 'Musica 2',
         Duracao: '00:03:30'
     }
 ]);
