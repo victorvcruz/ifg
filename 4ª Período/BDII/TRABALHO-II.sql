@@ -85,3 +85,5 @@ db.Musica.find({ Duracao: { $lt: '00:03:40' } }).forEach(function(doc) {
 --4) Escreva o comando para adicionar a música "Travessia" (ID 92) ao CD "Elis Regina - Essa Mulher".
 
 
+
+
