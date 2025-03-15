@@ -4,12 +4,12 @@
 
 --Script SQL (PostgreSQl) – Valor 0,2:
 
-INSERT INTO Autor (Nome_Autor)
-VALUES ('Milton Nascimento')
+INSERT INTO Autor (idAutor, Nome_Autor)
+VALUES (1, 'Milton Nascimento')
 RETURNING idAutor;
 
-INSERT INTO Musica (NomeMusica, Duracao) VALUES ('Maria Maria', '00:03:30');
-INSERT INTO Musica (NomeMusica, Duracao) VALUES ('Travessia', '00:03:30');
+INSERT INTO Musica (idMusica, NomeMusica, Duracao) VALUES (1, 'Musica 1', '00:03:30');
+INSERT INTO Musica (idMusica, NomeMusica, Duracao) VALUES (2, 'Musica 2', '00:03:30');
 
 INSERT INTO Musica_tem_Autor (idAutor, idMusica)
 VALUES
