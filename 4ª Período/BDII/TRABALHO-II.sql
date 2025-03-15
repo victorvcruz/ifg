@@ -52,4 +52,9 @@ UPDATE CD
 SET Preco_Venda = 12.00
 WHERE Nome_CD = 'Perfil';
 
---
+--Script MQL (MongoDB) – Valor 0,1:
+
+db.CD.updateOne(
+    { Nome_CD: 'Perfil' },
+    { $set: { Preco_Venda: 12.00 } }
+);
