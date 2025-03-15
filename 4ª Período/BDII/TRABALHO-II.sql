@@ -140,8 +140,11 @@ db.CD.deleteMany({ Dt_Lancamento: { $lt: new Date('1990-01-01') } });
 --7) Escreva a operação da álgebra relacional e o comando SQL para listar todas as músicas compostas por "Renato Russo".
 
 -- Álgebra Relacional – Valor 0,1:
+
 σNome_Autor='RenatoRusso'(Autor)
 
 Musicas_de_Renato_Russo=πidMusica(σNome_Autor= 'RenatoRusso'(Autor)⋈Musica_tem_Autor)
 
 πNomeMusica​(Musica⋈Musicas_de_Renato_Russo)
+
+-- Script SQL (PostgreSQl) – Valor 0,1:
