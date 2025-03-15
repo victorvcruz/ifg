@@ -9,3 +9,4 @@ IFG
 │   README.md
 │
 └───1º Período
+│   └───Algoritmos e Programação de Computadores
