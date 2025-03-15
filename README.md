@@ -1,3 +1,3 @@
 ## IFG - Instituto Federal de Goiás
 
-Repository
+Repositório para armazenar os códigos desenvolvidos durante o curso de **Introdução à Ciência da Computação com Python Parte 1**.
