@@ -82,3 +82,5 @@ db.Musica.find({ Duracao: { $lt: '00:03:40' } }).forEach(function(doc) {
     db.Musica.deleteOne({ idMusica: doc.idMusica });
 });
 
+
+
