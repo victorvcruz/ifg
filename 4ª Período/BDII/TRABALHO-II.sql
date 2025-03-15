@@ -130,7 +130,10 @@ db.Gravadora.updateOne(
 
 --Script SQL (PostgreSQl) – Valor 0,2:
 
+
 DELETE FROM CD
-WHERE Ano_Lancamento < 1990;
+WHERE Dt_Lancamento < '1990-01-01';
+
+
 
 
