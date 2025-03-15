@@ -15,3 +15,5 @@ INSERT INTO Musica_tem_Autor (idAutor, idMusica)
 VALUES
     (1, 1),
     (1, 2);
+
+--
