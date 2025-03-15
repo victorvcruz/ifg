@@ -10,3 +10,7 @@ IFG
 │
 └───1º Período
 │   └───Algoritmos e Programação de Computadores
+│   │   │   README.md
+│   │   │   Exercícios
+
+    
