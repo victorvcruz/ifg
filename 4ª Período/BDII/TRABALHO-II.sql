@@ -199,5 +199,3 @@ CREATE TRIGGER before_insert_cd
 BEFORE INSERT ON CD
 FOR EACH ROW
 EXECUTE FUNCTION controle_insercao_cd();
-
-
