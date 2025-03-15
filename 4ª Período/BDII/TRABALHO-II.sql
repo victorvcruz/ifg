@@ -126,6 +126,8 @@ db.Gravadora.updateOne(
     { $set: { Contato: 'Carlos' } }
 );
 
---
+--6) Escreva o comando para remover todos os CDs lançados antes de 1990.
+
+
 
 
