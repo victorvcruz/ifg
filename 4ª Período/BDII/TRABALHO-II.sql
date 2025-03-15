@@ -59,3 +59,5 @@ db.CD.updateOne(
     { $set: { preco_venda: 12.00 } }
 );
 
+--3) Escreva o comando para remover todas as músicas cujo tempo de duração seja inferior a 2 minutos e 30
+segundos.
