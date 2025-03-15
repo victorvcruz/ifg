@@ -1,3 +1,3 @@
 ## IFG 
 
-Repositório para armazenar códigos, anotações, exercícios e projetos desenvolvidos durante o curso de Sistemas de Informação no IFG (Instituto Federal de Goiás).
+Repository for storing codes, notes, exercises, and projects developed during the Information Systems course at IFG (Federal Institute of Goiás).
