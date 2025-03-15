@@ -49,3 +49,5 @@ db.Musica_tem_Autor.insertMany([
 --Script SQL (PostgreSQl) – Valor 0,2:
 
 UPDATE CD
+SET Preco = 12.00
+WHERE NomeCD = 'Perfil';
