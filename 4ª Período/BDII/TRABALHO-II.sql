@@ -111,6 +111,8 @@ db.Musica_tem_Autor.insertOne({
     idMusica: 92
 });
 
---
+--5) Escreva o comando para atualizar o contato da gravadora "BMG" para "Carlos".
+
+
 
 
