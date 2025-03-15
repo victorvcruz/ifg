@@ -154,3 +154,6 @@ FROM Musica M
 JOIN Musica_tem_Autor MA ON M.idMusica = MA.idMusica
 JOIN Autor A ON MA.idAutor = A.idAutor
 WHERE A.Nome_Autor = 'Renato Russo';
+
+--8) Escreva uma função em PL/PgSql que controle a inserção de novos registros na tabela CD. A função
+deve garantir que (Valor 1,0):
