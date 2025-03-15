@@ -148,3 +148,9 @@ Musicas_de_Renato_Russo=πidMusica(σNome_Autor= 'RenatoRusso'(Autor)⋈Musica_t
 πNomeMusica​(Musica⋈Musicas_de_Renato_Russo)
 
 -- Script SQL (PostgreSQl) – Valor 0,1:
+
+SELECT M.NomeMusica
+FROM Musica M
+JOIN Musica_tem_Autor MA ON M.idMusica = MA.idMusica
+JOIN Autor A ON MA.idAutor = A.idAutor
+WHERE A.Nome_Autor = 'Renato Russo';
