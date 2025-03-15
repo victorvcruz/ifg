@@ -8,13 +8,13 @@ INSERT INTO Autor (idAutor, Nome_Autor)
 VALUES (1, 'Milton Nascimento')
 RETURNING idAutor;
 
-INSERT INTO Musica (idMusica, NomeMusica, Duracao) VALUES (1, 'Musica 1', '00:03:30');
-INSERT INTO Musica (idMusica, NomeMusica, Duracao) VALUES (2, 'Musica 2', '00:03:30');
+INSERT INTO Musica (idMusica, NomeMusica, Duracao) VALUES (90, 'Musica 1', '00:03:30');
+INSERT INTO Musica (idMusica, NomeMusica, Duracao) VALUES (91, 'Musica 2', '00:03:30');
 
 INSERT INTO Musica_tem_Autor (idAutor, idMusica)
 VALUES
-    (1, 1),
-    (1, 2);
+    (1, 90),
+    (1, 91);
 
 --Script MQL (MongoDB) – Valor 0,1:
 
