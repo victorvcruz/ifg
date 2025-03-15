@@ -13,4 +13,7 @@ IFG
 │   │   │   README.md
 │   │   │   Exercícios
 
-    
+└───2º Período
+│   └───Estrutura de Dados
+│   │   │   README.md
+│   │   │   Exercícios
