@@ -24,11 +24,11 @@ db.Autor.insertOne({
 
 db.Musica.insertMany([
     {
-        NomeMusica: 'Musica',
+        NomeMusica: 'Musica 1',
         Duracao: '00:03:30'
     },
     {
-        NomeMusica: 'Travessia',
+        NomeMusica: 'Musica 2',
         Duracao: '00:03:30'
     }
 ]);
