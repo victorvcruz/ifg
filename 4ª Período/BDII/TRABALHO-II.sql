@@ -39,11 +39,11 @@ db.Musica.insertMany([
 db.Musica_tem_Autor.insertMany([
     {
         idAutor: 1,
-        idMusica: 1
+        idMusica: 90
     },
     {
         idAutor: 1,
-        idMusica: 291
+        idMusica: 91
     }
 ]);
 
