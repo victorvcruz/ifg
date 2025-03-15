@@ -141,9 +141,17 @@ db.CD.deleteMany({ Dt_Lancamento: { $lt: new Date('1990-01-01') } });
 
 σNome_Autor='RenatoRusso'(Autor)
 
-π 
-NomeMusica
- (Musica⋈M 
+M 
 u
 ˊ
- sicas_de_Renato_Russo)
+ sicas_de_Renato_Russo=π 
+idMusica
+​
+ (σ 
+Nome_Autor= 
+′
+ RenatoRusso 
+′
+ 
+​
+ (Autor)⋈Musica_tem_Autor)
