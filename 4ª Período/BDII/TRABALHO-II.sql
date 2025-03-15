@@ -119,6 +119,7 @@ UPDATE Gravadora
 SET Contato = 'Carlos'
 WHERE NomeGravadora = 'BMG';
 
+--Script MQL (MongoDB) – Valor 0,1:
 
 
 
