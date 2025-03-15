@@ -135,5 +135,7 @@ WHERE Dt_Lancamento < '1990-01-01';
 
 --Script MQL (MongoDB) – Valor 0,1:
 
+db.CD.deleteMany({ Dt_Lancamento: { $lt: new Date('1990-01-01') } });
+
 
 
