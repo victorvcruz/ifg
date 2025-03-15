@@ -48,3 +48,4 @@ db.Musica_tem_Autor.insertMany([
 
 --Script SQL (PostgreSQl) – Valor 0,2:
 
+UP
