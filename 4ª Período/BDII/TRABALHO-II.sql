@@ -162,3 +162,13 @@ WHERE A.Nome_Autor = 'Renato Russo';
 --d) sempre que um novo CD for adicionado, um log deve ser armazenado em uma tabela separada (cd_log).
 
 
+CREATE TABLE cd_log (
+    idLog SERIAL PRIMARY KEY,
+    idCD INTEGER NOT NULL,
+    Nome_CD VARCHAR(60) NOT NULL,
+    Dt_Lancamento DATE NOT NULL,
+    Preco_Venda DECIMAL(14,2),
+    Log_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
