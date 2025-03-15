@@ -115,8 +115,10 @@ db.Musica_tem_Autor.insertOne({
 
 --Script SQL (PostgreSQl) – Valor 0,2:
 
-UPDATE Gravadora 
+UPDATE Gravadora
 SET Contato = 'Carlos'
-WHERE Nome_Gravadora = 'BMG';
+WHERE NomeGravadora = 'BMG';
+
+
 
 
