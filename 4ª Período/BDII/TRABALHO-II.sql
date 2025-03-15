@@ -94,6 +94,16 @@ INSERT INTO Musica_tem_Autor (idAutor, idMusica) VALUES (1, 92);
 
 --Script MQL (MongoDB) – Valor 0,1:
 
+db.Musica.insertOne({
+    idMusica: 92,
+    NomeMusica: 'Travessia',
+    Duracao: '00:03:30'
+});
 
+db.Faixa.insertOne({
+    Numero_Faixa: 1,
+    idCD: 1,
+    idMusica: 92
+});
 
 
