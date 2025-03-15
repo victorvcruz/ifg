@@ -43,7 +43,7 @@ db.Musica_tem_Autor.insertMany([
     },
     {
         idAutor: 1,
-        idMusica: 2
+        idMusica: 291
     }
 ]);
 
