@@ -106,6 +106,9 @@ db.Faixa.insertOne({
     idMusica: 92
 });
 
-
+db.Musica_tem_Autor.insertOne({
+    idAutor: 1,
+    idMusica: 92
+});
 
 
