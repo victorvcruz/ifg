@@ -121,5 +121,9 @@ WHERE NomeGravadora = 'BMG';
 
 --Script MQL (MongoDB) – Valor 0,1:
 
+db.Gravadora.updateOne(
+    { NomeGravadora: 'BMG' },
+    { $set: { Contato: 'Carlos' } }
+);
 
 
