@@ -130,11 +130,9 @@ db.Gravadora.updateOne(
 
 --Script SQL (PostgreSQl) – Valor 0,2:
 
-
 DELETE FROM CD
 WHERE Dt_Lancamento < '1990-01-01';
 
 --Script MQL (MongoDB) – Valor 0,1:
-
 
 
