@@ -1,0 +1,37 @@
+@startuml
+start
+:Escolher Cadastro ou Login;
+
+if (Cadastro?) then (Sim)
+  :Preencher Dados Pessoais;
+  if (Dados Pessoais Válidos?) then (Sim)
+    :Criar Senha e Login;
+    if (Senha Segura?) then (Sim)
+      :Realizar Autenticação;
+        :Confirmar Registro;
+        :Cadastro Realizado com Sucesso;
+    else (Não)
+      :Senha Não Segura;
+      :Reiniciar Cadastro;
+    endif
+  else (Não)
+    :Dados Pessoais Inválidos;
+    :Reiniciar Cadastro;
+  endif
+else (Não)
+  :Entrar com Login e Senha;
+  if (Autenticação Bem-Sucedida?) then (Sim)
+    :Acesso Permitido;
+    :Verificar Permissões do Usuário;
+    if (Permissões Adequadas?) then (Sim)
+      :Redirecionar para Menu Principal;
+    else (Não)
+      :Acesso Negado;
+    endif
+  else (Não)
+    :Erro de Autenticação;
+    :Reiniciar Processo de Login;
+  endif
+endif
+stop
+@enduml

@@ -1,0 +1,35 @@
+@startuml
+[*] --> Criado
+
+Criado --> Enviado : Registrar Pedido
+Enviado --> Aprovado : Aprovar Pedido (Gerente)
+Enviado --> Em_Andamento : Enviar para Cozinha/Bar
+Enviado --> Alterado : Solicitar Edição (Gerente)
+
+Aprovado --> Em_Andamento : Iniciar Preparo
+Em_Andamento --> Finalizado : Pedido Pronto
+Em_Andamento --> Alterado : Solicitar Edição (Gerente)
+
+Finalizado --> Pago : Efetuar Pagamento
+Pago --> Concluido : Confirmar Pagamento
+
+Alterado --> Em_Andamento : Enviar para Cozinha/Bar
+Alterado --> Finalizado : Finalizar Pedido (Gerente)
+Alterado --> Concluido : Confirmar Pagamento (Se Pago)
+
+Em_Andamento --> Alterado : Solicitar Alteração
+Alterado --> Em_Andamento : Enviar novamente à Cozinha/Bar
+
+Finalizado --> Pago : Confirmar Pagamento
+Pago --> Concluido : Confirmar Pagamento Realizado
+
+Criado : "Registro de Pedido"
+Enviado : "Pedido Enviado ao Cozinha/Bar"
+Aprovado : "Pedido Aprovado pelo Gerente"
+Em_Andamento : "Cozinha/Bar Processando Pedido"
+Alterado : "Pedido Alterado (Gerente)"
+Finalizado : "Pedido Concluído"
+Pago : "Pagamento Realizado"
+Concluido : "Pedido Finalizado"
+
+@enduml

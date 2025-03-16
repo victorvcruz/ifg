@@ -1,0 +1,35 @@
+@startuml
+actor Garçom
+participant Aplicativo
+participant "Sistema de Autorização" as Autorizacao
+participant "Sistema de Pagamento" as Pagamento
+participant "Sistema de Controle de Estoque" as Estoque
+participant "Sistema de Pedidos" as Pedidos
+participant "Cozinha/Bar" as Cozinha
+
+Garçom -> Aplicativo : Inicia aplicativo
+Aplicativo -> Autorizacao : Solicita autenticação
+Autorizacao -> Garçom : Exibe formulário de login
+Garçom -> Autorizacao : Fornece credenciais
+Autorizacao -> Aplicativo : Autenticação bem-sucedida
+Aplicativo -> Garçom : Acesso liberado
+
+Garçom -> Aplicativo : Solicita criação de pedido
+Aplicativo -> Pedidos : Cria novo pedido
+Pedidos -> Estoque : Verifica disponibilidade de itens
+Estoque -> Pedidos : Retorna status de disponibilidade
+Pedidos -> Cozinha : Envia pedido para cozinha/bar
+Cozinha -> Pedidos : Confirma recebimento e status do pedido
+Pedidos -> Aplicativo : Retorna status de pedido
+Aplicativo -> Garçom : Notifica status do pedido
+
+Pedidos -> Estoque : Solicita atualização de estoque após pedido
+Estoque -> Pedidos : Atualiza estoque
+Pedidos -> Aplicativo : Atualiza status de estoque
+
+Garçom -> Aplicativo : Solicita pagamento
+Aplicativo -> Pagamento : Inicia processo de pagamento (Pix, cartão)
+Pagamento -> Aplicativo : Confirmação de pagamento
+Aplicativo -> Garçom : Notifica pagamento concluído
+Garçom -> Aplicativo : Conclui processo de pagamento
+@enduml

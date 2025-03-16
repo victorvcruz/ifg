@@ -1,0 +1,96 @@
+@startuml
+
+class Usuario {
+    - id: int
+    - nome: String
+    - email: String
+    - senha: String
+    - permissao: String
+    + autenticar(): boolean
+    + gerarRelatorio(): void
+}
+
+class Garcom {
+    - mesa: int
+    + registrarPedido(): void
+    + editarPedido(): void
+}
+
+class Gerente {
+    - idDepartamento: int
+    + autorizarEdicaoPedido(): void
+    + gerarRelatorioGerencial(): void
+}
+
+class Caixa {
+    - metodoPagamento: String
+    + fecharConta(): void
+    + processarPagamento(): void
+}
+
+class Pedido {
+    - id: int
+    - itens: List<Item>
+    - status: String
+    + adicionarItem(item: Item): void
+    + removerItem(item: Item): void
+    + editarStatus(status: String): void
+}
+
+class Item {
+    - nome: String
+    - preco: double
+}
+
+class Estoque {
+    - produtos: List<Produto>
+    + verificarDisponibilidade(): boolean
+    + atualizarEstoque(): void
+}
+
+class Produto {
+    - nome: String
+    - quantidade: int
+    - preco: double
+}
+
+class Relatorio {
+    - tipo: String
+    - dados: String
+    + gerarRelatorio(): void
+    + enviarPorEmail(): void
+}
+
+class Notificacao {
+    - tipo: String
+    - mensagem: String
+    + enviarNotificacao(): void
+}
+
+class Pagamento {
+    - metodo: String
+    - valor: double
+    + processarPagamento(): void
+}
+
+Usuario <|-- Garcom : Herança
+Usuario <|-- Gerente : Herança
+Usuario <|-- Caixa : Herança
+
+Garcom --> Pedido : Associação
+Gerente --> Pedido : Associação
+Caixa --> Pedido : Associação
+
+Pedido --> Item : Composição
+Pedido --> Estoque : Associação
+Pedido --> Pagamento : Associação
+
+Estoque --> Produto : Agregação
+Pagamento --> Pagamento : Associação
+
+Relatorio --> Pedido : Associação
+Relatorio --> Estoque : Associação
+
+Notificacao --> Pedido : Associação
+
+@enduml
