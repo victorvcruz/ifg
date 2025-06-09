@@ -1,4 +1,4 @@
-# Atividade 02 - 06/03
+# Atividade 02 - 03/06
 Victor Hugo Vieira Cruz - 20231011090296
 
 ##  1 - Explique como o uso do padrão Model-View-Controller (MVC) facilita a manutenção e evolução de sistemas que possuem múltiplas formas de visualização e interação com os dados.
@@ -20,7 +20,7 @@ Esse padrão é escalável porque permite que muitos clientes acessem o sistema 
 ## 6 - m que cenários a combinação de dois ou mais padrões arquiteturals é recomendada? De um exemplo prático baseado na apresentação.
 Combinar padrões faz sentido quando o sistema é complexo e tem necessidades diferentes. Um bom exemplo é um CMS (sistema de gerenciamento de conteúdo), que pode usar MVC para organizar a interface e a lógica de negócio, e Repositório para lidar com os dados. Assim, o sistema fica mais flexível, organizado e preparado para crescer.
 
-## 7 -Compare o padrão MVC com o padrão Arquitetura em Camadas em termos de separação de responsabilidades. Em que siluações um seria mais vantajoso que o outro?
+## 7 - Compare o padrão MVC com o padrão Arquitetura em Camadas em termos de separação de responsabilidades. Em que siluações um seria mais vantajoso que o outro?
 Os dois padrões ajudam a organizar o sistema, mas com focos diferentes. O MVC separa as responsabilidades de forma mais voltada à interação do usuário: modelo, visualização e controle. É ideal para aplicações com interface dinâmica. Já a Arquitetura em Camadas organiza o sistema em níveis (interface, lógica, dados), o que é ótimo para sistemas grandes com regras de negócio complexas. Em geral, MVC é mais vantajoso para apps interativos, e Camadas para sistemas corporativos mais robustos.
 
 ## 8 - Quais critérios devem ser considerados na escolha de um padrão arquitetural? Relacione esses critérios com os cinco padrões estudados.
@@ -33,7 +33,7 @@ Alguns critérios importantes são:
 - Integração com outros sistemas: Repositório facilita a comunicação com outras ferramentas ou bancos de dados.
 
 
-## 9 -Quais são as principais vantagens e desvantagens do padrão Repositório em sistemas colaborativos?
+## 9 - Quais são as principais vantagens e desvantagens do padrão Repositório em sistemas colaborativos?
 - Vantagens:
     - Centraliza o acesso aos dados, o que ajuda a manter tudo sincronizado.
     - Facilita a integração com outras ferramentas e serviços.
@@ -45,7 +45,7 @@ Alguns critérios importantes são:
     - Pode virar um gargalo se não for bem dimensionado, já que todos os acessos passam por ele.
     - Exige atenção extra com concorrência e sincronização quando muitos acessos acontecem ao mesmo tempo.
 
-## 10 -  Um sistema de biblioteca digital que oferece interface web, autenticação de usuários, acesso a calálogos e serviços de empréstimo pode se beneficiar de quais padrões arquiteturais? Justifique.
+## 10 - Um sistema de biblioteca digital que oferece interface web, autenticação de usuários, acesso a calálogos e serviços de empréstimo pode se beneficiar de quais padrões arquiteturais? Justifique.
 Esse tipo de sistema pode aproveitar vários padrões combinados:
 - MVC: Para separar a interface da lógica e dos dados, o que ajuda na manutenção da interface web.
 - Arquitetura em Camadas: Para organizar o sistema em níveis, facilitando a adição de novas funcionalidades como autenticação e serviços de empréstimo.
