@@ -1,0 +1,29 @@
+.carousel-item img {
+    height: 444px;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.carousel-caption h5 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.div-novidades {
+    max-width: 700px;
+}
+
+#facilidades .bi {
+    color: #CCFF00; 
+}
+
+#facilidades .fs-5 {
+    color: #CCFF00;
+    font-weight: bold;
+}
+
+.card .card-img-top {
+    height: 300px;
+    object-fit: cover; 
+}
