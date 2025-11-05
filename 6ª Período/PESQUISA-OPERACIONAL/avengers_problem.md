@@ -1,30 +1,37 @@
-## Exercício Avenger Problem
+# Problema dos Vingadores
 
-Varíaveis
+## Descrição
+Problema de otimização para determinar a quantidade ideal de ataques de cada herói dos Vingadores para maximizar o dano total dentro das restrições de tempo e energia.
 
-x1 = Quantidade de ataques de Dr. Stephen Strange
-x2 = Quantidade de ataques de Iron Man
-x3 = Quantidade de ataques de Thor
-x4 = Quantidade de ataques de Captain America
-x5 = Quantidade de ataques de Black Widow
-x6 = Quantidade de ataques de Spider Man
-x7 = Quantidade de ataques de Star-Lord
+## Variáveis de Decisão
+- **x₁** = quantidade de ataques de Dr. Stephen Strange
+- **x₂** = quantidade de ataques de Iron Man
+- **x₃** = quantidade de ataques de Thor
+- **x₄** = quantidade de ataques de Captain America
+- **x₅** = quantidade de ataques de Black Widow
+- **x₆** = quantidade de ataques de Spider-Man
+- **x₇** = quantidade de ataques de Star-Lord
 
-Função Objetiva:
-Maximizar Z = 24x1 + 21x2+ 30x3 + 13x4 + 8x5 + 18x6 + 6x7
+## Função Objetivo
+**Maximizar:** Z = 24x₁ + 21x₂ + 30x₃ + 13x₄ + 8x₅ + 18x₆ + 6x₇
 
-Restrições:
+## Restrições
 
-1) 22x1 + 20x2 + 25x3 + 10x4 + 19x5 + 24x6 + 14x7 <= 120 (tempo disponível de 20 minutos de ataque)
-2) x6 >= 5 (spider-man precisa atacar no minimo 5 vezes)
-3) x3 <= 6 (thor não pode atacar mais que 6 vezes)
-4) x1 <= x2 (quantidade de ataques de Dr. Stephen Strange não pode ser maior que o dobro de ataque de Iron Man)
-5) x4 + x5 + x2 + x7 > x3 + x1 (quantidade de ataques de Captain America, Black Widow, Iron Man, e Star Lord não pode ser menos que a soma de ataque de Thor e Dr. Stephen Strange)
-6) 33x1 <= 250 (gasto de energia por ataque de Dr. Stephen Strange)
-7) 21x2 <= 200 (gasto de energia por ataque de Iron Man)
-8) 35x3 <= 300 (gasto de energia por ataque de Thor)
-9) 13x4 <= 130 (gasto de energia por ataque de Captain America)
-10) 11x5 <= 90 (gasto de energia por ataque de Black Widow)
-11) 18x6 <= 120 (gasto de energia por ataque de Spider Man)
-12) 7x7 <= 50 (gasto de energia por ataque de Star-Lord)
-13) x1,x2,x3,x4,x5,x6,x7 >= 0
+### Restrições de Tempo e Estratégia
+1. **Tempo disponível:** 22x₁ + 20x₂ + 25x₃ + 10x₄ + 19x₅ + 24x₆ + 14x₇ ≤ 120
+2. **Mínimo Spider-Man:** x₆ ≥ 5
+3. **Máximo Thor:** x₃ ≤ 6
+4. **Relação Strange-Iron Man:** x₁ ≤ x₂
+5. **Estratégia conjunta:** x₄ + x₅ + x₂ + x₇ ≥ x₃ + x₁
+
+### Restrições de Energia por Herói
+6. **Dr. Stephen Strange:** 33x₁ ≤ 250
+7. **Iron Man:** 21x₂ ≤ 200
+8. **Thor:** 35x₃ ≤ 300
+9. **Captain America:** 13x₄ ≤ 130
+10. **Black Widow:** 11x₅ ≤ 90
+11. **Spider-Man:** 18x₆ ≤ 120
+12. **Star-Lord:** 7x₇ ≤ 50
+
+### Não Negatividade
+13. **Todas as variáveis:** x₁, x₂, x₃, x₄, x₅, x₆, x₇ ≥ 0
