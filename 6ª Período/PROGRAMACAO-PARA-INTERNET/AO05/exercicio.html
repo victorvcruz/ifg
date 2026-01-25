@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário Simples</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome"><br><br>
+
+        <label for="sobrenome">Sobrenome:</label>
+        <input type="text" id="sobrenome" name="sobrenome" value="Rua etc, 20"><br><br>
+
+        <label for="telefone">Telefone:</label>
+        <input type="text" id="telefone" name="telefone" placeholder="(00)00000-0000"><br><br>
+
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado">
+            <option value="GO" selected>GO</option>
+            <option value="SP">SP</option>
+            <option value="RJ">RJ</option>
+        </select><br><br>
+
+        <label for="idade">Idade:</label>
+        <input type="number" id="idade" name="idade" placeholder="..."><br><br>
+        
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" placeholder="..."><br><br>
+        
+        <input type="radio" id="masculino" name="genero" value="M">
+        <label for="masculino">Masculino</label>
+        
+        <input type="radio" id="feminino" name="genero" value="F">
+        <label for="feminino">Feminino</label>
+        <br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

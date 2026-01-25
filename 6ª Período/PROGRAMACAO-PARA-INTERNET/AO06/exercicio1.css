@@ -1,0 +1,30 @@
+body {
+    background-color: #CCCCFF;
+    margin: 0;
+    padding: 0;
+}
+
+.bloco-titulo-principal {
+    background-color: #ADD8E6;
+    padding: 10px;
+    border-bottom: 2px solid #9999FF;
+}
+
+.bloco-titulo-principal h1 {
+    color: navy;
+    margin: 0;
+}
+
+.bloco-subcapitulo {
+    padding: 10px; 
+}
+
+.titulo-secundario {
+    color: #CC0000;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+#capitulo-1 {
+    
+}

@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+}
+
+#cabecalho-principal {
+    background-color: #555555;
+    color: white;
+    padding: 10px;
+}
+
+#cabecalho-principal h1 {
+    margin: 0;
+}
+
+#area-central {
+    display: flex;
+}
+
+.coluna-navegacao {
+    width: 50%;
+    background-color: #CCCCCC;
+    padding: 15px;
+}
+
+.coluna-preenchimento {
+    width: 50%;
+    background-color: #00FFFF;
+    padding: 15px;
+}
+
+.conteudo-principal {
+    background-color: #CCCCCC;
+    padding: 15px;
+}
+
+.conteudo-principal h2 {
+    margin-top: 0;
+}
+
+#rodape-principal {
+    background-color: #555555;
+    color: white;
+    padding: 15px;
+}
+
+#rodape-principal a {
+    color: white;
+    text-decoration: none;
+}
