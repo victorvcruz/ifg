@@ -1,0 +1,1454 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Message API",
+    "description": "API responsável por solicitar envio de mensagens.",
+    "contact": {
+      "name": "Squad Arquitetura",
+      "email": "arquitetura@vocedm.com.br"
+    },
+    "version": "2.0"
+  },
+  "paths": {
+    "/api/v2/Messages/SMS": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSmsWithTemplateRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSmsWithTemplateRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSmsWithTemplateRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSmsWithTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Messages/PUSH": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendPushWithTemplateRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendPushWithTemplateRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendPushWithTemplateRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendPushWithTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Messages/WhatsApp": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendWhatsAppRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendWhatsAppRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendWhatsAppRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSmsWithTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Messages/PUSH/{id}": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PushDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Scheduler/SMS": {
+      "post": {
+        "tags": [
+          "Scheduler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSchedulerSmsWithTemplateRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSchedulerSmsWithTemplateRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSchedulerSmsWithTemplateRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSchedulerSmsWithTemplateResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/Searches/TemplatesSMS": {
+      "post": {
+        "tags": [
+          "Searches"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchTemplatesSmsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchTemplatesSmsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchTemplatesSmsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchTemplatesSmsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/TemplatesPush": {
+      "post": {
+        "tags": [
+          "TemplatesPush"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplatePushRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplatePushRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplatePushRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTemplatePushResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "TemplatesPush"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplatePushResumeDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/TemplatesPush/{id}": {
+      "put": {
+        "tags": [
+          "TemplatesPush"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplatePushRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplatePushRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplatePushRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "TemplatesPush"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplatePushDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/TemplatesSMS": {
+      "post": {
+        "tags": [
+          "TemplatesSMS"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplateSmsRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplateSmsRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplateSmsRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTemplateSmsResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "TemplatesSMS"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateSmsResumeDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/TemplatesSMS/{templateId}": {
+      "patch": {
+        "tags": [
+          "TemplatesSMS"
+        ],
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplateSmsRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplateSmsRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplateSmsRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplateSmsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "TemplatesSMS"
+        ],
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplateSmsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v2/TemplatesSMS/ApprovalStatus/{originId}/{templateId}": {
+      "get": {
+        "tags": [
+          "TemplatesSMS"
+        ],
+        "parameters": [
+          {
+            "name": "templateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "originId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetTemplateSmsApprovalStatusResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddSchedulerSmsWithTemplateRequestDto": {
+        "required": [
+          "callback",
+          "destination",
+          "priority",
+          "schedulerTo",
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "description": "Destino da mensagem (telefone contendo apenas números incluindo DDI e DDD. Exemplo: +5511999999999 (DDI + DDD + número))",
+            "example": "+5511999999999"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Identificador do template da mensagem",
+            "example": "64f7f5a1e19f8e1f8e7c8b3e"
+          },
+          "placeholders": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Informações das variáveis utilizadas pelo template (opcional)",
+            "example": {
+              "name": "João da Silva"
+            }
+          },
+          "callback": {
+            "type": "boolean",
+            "description": "Indica se um callback será utilizado",
+            "example": false
+          },
+          "priority": {
+            "type": "string",
+            "description": "Prioridade da mensagem: low, medium ou high",
+            "example": "high"
+          },
+          "schedulerTo": {
+            "type": "string",
+            "description": "Horário de agendamento da mensagem no formato yyyy-MM-ddTHH:mm:ss",
+            "format": "date-time",
+            "example": "2025-04-25T12:00:00"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para Agendamento de SMS"
+      },
+      "AddSchedulerSmsWithTemplateResponseDto": {
+        "required": [
+          "messageId",
+          "schedulerId"
+        ],
+        "type": "object",
+        "properties": {
+          "schedulerId": {
+            "type": "string",
+            "description": "Identificador único do agendamento da mensagem",
+            "example": "66fb683c04479e96ca27adea"
+          },
+          "messageId": {
+            "type": "string",
+            "description": "Identificador único da mensagem enviada",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de resposta ao agendamento de SMS"
+      },
+      "AddTemplatePushRequestDto": {
+        "required": [
+          "description",
+          "name",
+          "template"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Define se o nome do template",
+            "example": "Boas vindas"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição com mais detalhes do template",
+            "example": "Push de notificação de marketing para o DM APP"
+          },
+          "template": {
+            "type": "string",
+            "description": "Base64 do template push",
+            "example": "VGVzdGUgbWVuc2FnZW0gZGUgUHVzaCBwYXJhIHt7Tm9tZX19"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para adicionar um template de Push"
+      },
+      "AddTemplatePushResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único do novo template",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AddTemplateSmsRequestDto": {
+        "required": [
+          "description",
+          "name",
+          "originId",
+          "template",
+          "whatsappProvider"
+        ],
+        "type": "object",
+        "properties": {
+          "originId": {
+            "type": "string",
+            "description": "OriginId que pediu a criação do template",
+            "example": "670da2467dcaf1e93c1fc2e0"
+          },
+          "name": {
+            "type": "string",
+            "description": "Define se o nome do template",
+            "example": "boas_vindas"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição com mais detalhes do template",
+            "example": "SMS de boas vindas para os clientes após finalizarem o cadastro"
+          },
+          "template": {
+            "type": "string",
+            "description": "Base64 do template sms",
+            "example": "T2zDoSB7e05vbWV9fSwgZXNzYSDDqSB1bWEgbWVuc2FnZW0gZGUgdGVzdGUu"
+          },
+          "whatsappProvider": {
+            "type": "string",
+            "description": "Nome do provedor de Whatsapp",
+            "example": "twilio"
+          },
+          "placeholders": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Informações das variáveis utilizadas pelo template",
+            "example": {
+              "Nome": "João"
+            }
+          },
+          "category": {
+            "type": "string",
+            "description": "Informações sobre a categoria do template (AUTHENTICATION, MARKETING, UTILITY)",
+            "example": "MARKETING"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para adicionar um template de e-mail"
+      },
+      "AddTemplateSmsResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único do novo template",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetTemplateSmsApprovalStatusResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "reasonType": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "GetTemplateSmsResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "templatesWhatsappProviders": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": { }
+      },
+      "PushDestinationDto": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Tipo do destino: customer_id, document ou token",
+            "example": "document"
+          },
+          "value": {
+            "type": "string",
+            "description": "Valor do destino (CPF para document, ID do cliente para customer_id, token para token)",
+            "example": "12345678900"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de destino para Push notification"
+      },
+      "PushDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sentAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchTemplatesSmsDto": {
+        "required": [
+          "page",
+          "pageSize"
+        ],
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Número da página atual",
+            "format": "int32",
+            "example": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Quantidade de itens por página",
+            "format": "int32",
+            "example": 10
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Campo para ordenação (opcional). Default é CreatedAt",
+            "example": "CreatedAt"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Tipo de ordenação (opcional). Default é Ascending",
+            "example": "Ascending"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição dos templates de SMS (opcional)",
+            "example": "Template de contratação"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Requisição de busca de templates de sms com paginação e filtros"
+      },
+      "SearchTemplatesSmsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TemplateSmsResumeDto"
+            }
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SendPushWithTemplateRequestDto": {
+        "required": [
+          "callback",
+          "destination",
+          "priority",
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PushDestinationDto"
+            },
+            "description": "Lista de destinos da notificação push (pode conter customer_id, document ou token)",
+            "example": [
+              {
+                "type": "document",
+                "value": "12345678900"
+              },
+              {
+                "type": "token",
+                "value": "812J3UANDANDZXCAD18"
+              },
+              {
+                "type": "customer_id",
+                "value": "64f7f5a1e19f8e1f8e7c8b3e"
+              }
+            ]
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Identificador do template da mensagem",
+            "example": "64f7f5a1e19f8e1f8e7c8b3e"
+          },
+          "placeholders": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Informações das variáveis utilizadas pelo template (opcional)",
+            "example": {
+              "name": "João da Silva"
+            }
+          },
+          "callback": {
+            "type": "boolean",
+            "description": "Indica se um callback será utilizado",
+            "example": false
+          },
+          "priority": {
+            "type": "string",
+            "description": "Prioridade da mensagem: low, medium ou high",
+            "example": "high"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para enviar Push notification"
+      },
+      "SendPushWithTemplateResponseDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único da mensagem enviada",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de resposta ao envio de Push notification"
+      },
+      "SendSmsWithTemplateRequestDto": {
+        "required": [
+          "callback",
+          "destination",
+          "priority",
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "description": "Destino da mensagem (telefone contendo apenas números incluindo DDI e DDD. Exemplo: +5511999999999 (DDI + DDD + número))",
+            "example": "+5511999999999"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Identificador do template da mensagem",
+            "example": "64f7f5a1e19f8e1f8e7c8b3e"
+          },
+          "placeholders": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Informações das variáveis utilizadas pelo template (opcional)",
+            "example": {
+              "name": "João da Silva"
+            }
+          },
+          "callback": {
+            "type": "boolean",
+            "description": "Indica se um callback será utilizado",
+            "example": false
+          },
+          "priority": {
+            "type": "string",
+            "description": "Prioridade da mensagem: low, medium ou high",
+            "example": "high"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para enviar SMS"
+      },
+      "SendSmsWithTemplateResponseDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único da mensagem enviada",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de resposta ao envio de SMS"
+      },
+      "SendWhatsAppRequestDto": {
+        "required": [
+          "callback",
+          "destination",
+          "priority",
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "description": "Destino da mensagem (telefone contendo apenas números incluindo DDI e DDD. Exemplo: +5511999999999 (DDI + DDD + número))",
+            "example": "+5511999999999"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Identificador do template da mensagem",
+            "example": "64f7f5a1e19f8e1f8e7c8b3e"
+          },
+          "placeholders": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Informações das variáveis utilizadas pelo template (opcional)",
+            "example": {
+              "name": "João da Silva"
+            }
+          },
+          "callback": {
+            "type": "boolean",
+            "description": "Indica se um callback será utilizado",
+            "example": false
+          },
+          "priority": {
+            "type": "string",
+            "description": "Prioridade da mensagem: low, medium ou high",
+            "example": "high"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para enviar WhatsApp"
+      },
+      "TemplatePushDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TemplatePushResumeDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TemplateSmsResumeDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateTemplatePushRequestDto": {
+        "required": [
+          "description",
+          "enabled",
+          "name",
+          "template"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Define se o nome do template",
+            "example": "Boas vindas"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição com mais detalhes do template",
+            "example": "Push de notificação de marketing para o DM APP"
+          },
+          "template": {
+            "type": "string",
+            "description": "Base64 do template push",
+            "example": "VGVzdGUgbWVuc2FnZW0gZGUgUHVzaCBwYXJhIHt7Tm9tZX19"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Ativa ou desativa template",
+            "example": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para adicionar um template de Push"
+      },
+      "UpdateTemplateSmsRequestDto": {
+        "required": [
+          "enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Indica se o template de sms está ativo ou inativo",
+            "example": false
+          },
+          "twilioId": {
+            "type": "string",
+            "description": "Id do template na Twilio (opcional)",
+            "example": "HX907904a1c6f4837e23c51f7057e5daec"
+          },
+          "zenviaId": {
+            "type": "string",
+            "description": "Id do template na Zenvia (opcional)",
+            "example": "59e998ee-3a2a-4fb9-9e64-5e7b2798a3de"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para atualizar um template de e-mail existente"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Insert the JWT token in format: Bearer {token}",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

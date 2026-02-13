@@ -1,0 +1,2448 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Message API",
+    "description": "API responsável por solicitar envio de mensagens.",
+    "contact": {
+      "name": "Squad Arquitetura",
+      "email": "arquitetura@vocedm.com.br"
+    },
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/v1/Contexts": {
+      "post": {
+        "tags": [
+          "Contexts"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContextRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContextRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateContextRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateContextResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/HealthCheck": {
+      "get": {
+        "tags": [
+          "HealthCheck"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Messages/Emails": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendEmailRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendEmailRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendEmailRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendEmailResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Messages/SMS": {
+      "post": {
+        "tags": [
+          "Messages"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSmsRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSmsRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSmsRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSmsResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Messages/Emails/{id}": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Messages/SMS/{id}": {
+      "get": {
+        "tags": [
+          "Messages"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SmsDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/MessagesStatus": {
+      "get": {
+        "tags": [
+          "MessagesStatus"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MessageStatusDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "MessagesStatus"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddMessageStatusRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddMessageStatusRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddMessageStatusRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddMessageStatusResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/MessagesStatus/{id}": {
+      "put": {
+        "tags": [
+          "MessagesStatus"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMessageStatusRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMessageStatusRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMessageStatusRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Origins": {
+      "get": {
+        "tags": [
+          "Origins"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OriginDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Origins"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOriginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOriginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateOriginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateOriginResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Origins/Providers": {
+      "get": {
+        "tags": [
+          "Origins"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProviderByOriginDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Origins"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddProviderFromOriginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddProviderFromOriginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddProviderFromOriginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddProviderFromOriginResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Origins/{id}": {
+      "put": {
+        "tags": [
+          "Origins"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOriginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOriginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateOriginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Origins/Providers/{id}": {
+      "put": {
+        "tags": [
+          "Origins"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProviderFromOriginRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProviderFromOriginRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProviderFromOriginRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Providers": {
+      "get": {
+        "tags": [
+          "Providers"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ProviderDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Providers"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddProviderRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddProviderRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddProviderRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddProviderResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Providers/{id}": {
+      "put": {
+        "tags": [
+          "Providers"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProviderRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProviderRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProviderRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Providers/{id}/delayed": {
+      "patch": {
+        "tags": [
+          "Providers"
+        ],
+        "summary": "Define um provider como delayed para menagens de baixa prioridade",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do provider",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Scheduler/Emails": {
+      "post": {
+        "tags": [
+          "Scheduler"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSchedulerEmailRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSchedulerEmailRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddSchedulerEmailRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddSchedulerEmailResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Scheduler/Cancel/{schedulerId}": {
+      "delete": {
+        "tags": [
+          "Scheduler"
+        ],
+        "parameters": [
+          {
+            "name": "schedulerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Scheduler/{schedulerId}": {
+      "get": {
+        "tags": [
+          "Scheduler"
+        ],
+        "parameters": [
+          {
+            "name": "schedulerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SchedulerDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Searches/SMS": {
+      "post": {
+        "tags": [
+          "Searches"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSmsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSmsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSmsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchSmsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/Searches/Origins": {
+      "post": {
+        "tags": [
+          "Searches"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchOriginsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchOriginsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchOriginsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchOriginsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/TemplatesEmail/{id}": {
+      "get": {
+        "tags": [
+          "TemplatesEmail"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateEmailDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TemplatesEmail"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplateEmailRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplateEmailRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTemplateEmailRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/v1/TemplatesEmail": {
+      "get": {
+        "tags": [
+          "TemplatesEmail"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TemplateEmailResumeDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TemplatesEmail"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplateEmailRequestDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplateEmailRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTemplateEmailRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTemplateEmailResponseDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AddMessageStatusRequestDto": {
+        "required": [
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Status da mensagem a ser adicionado",
+            "example": "delivered"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para adicionar um novo status de mensagem"
+      },
+      "AddMessageStatusResponseDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único do status criado",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de resposta ao adicionar um novo status de mensagem"
+      },
+      "AddProviderFromOriginRequestDto": {
+        "required": [
+          "credentialsKey",
+          "endpoint",
+          "otherSettings",
+          "provider"
+        ],
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "description": "Nome do provedor a ser adicionado. Aceitos: Twilio, Zenvia e SNS",
+            "example": "Twilio"
+          },
+          "originId": {
+            "type": "string",
+            "description": "Id da origem (opcional)",
+            "example": "670da2467dcaf1e93c1fc2e0"
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint do provedor para comunicação",
+            "example": "https://api.twilio.com/2010-04-01/Accounts/${AccountSID}/Messages.json"
+          },
+          "credentialsKey": {
+            "type": "string",
+            "description": "Chave de credenciais para autenticação no provedor",
+            "example": "twilio-api-key-xyz"
+          },
+          "otherSettings": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Configurações adicionais para o provedor em formato de chave-valor",
+            "example": {
+              "account_sid": "1223132132123"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para adicionar um provedor a partir de uma origem"
+      },
+      "AddProviderFromOriginResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único do provedor adicionado",
+            "example": "670da2467dcaf1e93c1fc2e0"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para a resposta ao adicionar um provedor a partir de uma origem"
+      },
+      "AddProviderRequestDto": {
+        "required": [
+          "name",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Define se o nome do provedor",
+            "example": "Zenvia"
+          },
+          "type": {
+            "type": "string",
+            "description": "Define se o type do provedor (SMS, EMAIL, PUSH or WHATSAPP)",
+            "example": "SMS"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para adicionar um provedor"
+      },
+      "AddProviderResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único da novo provedor",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para a resposta ao criar um novo provedor"
+      },
+      "AddSchedulerEmailRequestDto": {
+        "required": [
+          "destination",
+          "priority",
+          "schedulerTo",
+          "sender",
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "sender": {
+            "type": "string",
+            "description": "Remetente da mensagem a ser enviada",
+            "example": "sender@teste.com"
+          },
+          "destination": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Lista dos destinatários da mensagem a ser enviada",
+            "example": [
+              "destinatarion@test.com"
+            ]
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Identificador do template da mensagem",
+            "example": "64f7f5a1e19f8e1f8e7c8b3e"
+          },
+          "placeholders": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Informações das variáveis utilizadas pelo template (opcional)",
+            "example": {
+              "name": "João da Silva"
+            }
+          },
+          "priority": {
+            "type": "string",
+            "description": "Prioridade da mensagem: low, medium ou high",
+            "example": "high"
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttachmentDto"
+            },
+            "description": "Lista dos anexos da mensagem limitado a 30MB (opcional)"
+          },
+          "schedulerTo": {
+            "type": "string",
+            "description": "Horário de agendamento da mensagem no formato yyyy-MM-ddTHH:mm:ss",
+            "format": "date-time",
+            "example": "2025-04-25T12:00:00"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para enviar Email"
+      },
+      "AddSchedulerEmailResponseDto": {
+        "required": [
+          "messageId",
+          "schedulerId"
+        ],
+        "type": "object",
+        "properties": {
+          "schedulerId": {
+            "type": "string",
+            "description": "Identificador único do agendamento da mensagem",
+            "example": "66fb683c04479e96ca27adea"
+          },
+          "messageId": {
+            "type": "string",
+            "description": "Identificador único da mensagem enviada",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de resposta ao envio de SMS"
+      },
+      "AddTemplateEmailRequestDto": {
+        "required": [
+          "description",
+          "name",
+          "subject",
+          "template"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Define se o nome do template",
+            "example": "Boas vindas"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição com mais detalhes do template",
+            "example": "E-mail de boas vindas para os clientes após finalizarem o cadastro"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Assunto do e-mail",
+            "example": "Cadastro realizado com sucesso {{.NomeDoCliente}}"
+          },
+          "template": {
+            "type": "string",
+            "description": "Base64 do template do e-mail em HTML",
+            "example": "PGh0bWw+dGVtcGxhdGUgdGVzdGU8L2h0bWw+"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para adicionar um template de e-mail"
+      },
+      "AddTemplateEmailResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único do novo template",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttachmentDto": {
+        "required": [
+          "content",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "content": {
+            "type": "string",
+            "description": "Conteúdo do anexo em formato base64",
+            "example": "YW5leG8gZGUgdGVzdGU="
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do anexo contendo sua extensão",
+            "example": "Anexo.txt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para anexo"
+      },
+      "CreateContextRequestDto": {
+        "required": [
+          "name",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Tipo do contexto",
+            "example": "PASSWORD_RESET_CARD"
+          },
+          "name": {
+            "type": "string",
+            "description": "Nome do contexto",
+            "example": "Redefinição de senha do cartão"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para criar um novo contexto"
+      },
+      "CreateContextResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único do novo contexto criado",
+            "example": "683dd65240f97fef381ea1f8"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para a resposta ao criar um novo contexto"
+      },
+      "CreateOriginRequestDto": {
+        "required": [
+          "maxRetries",
+          "name",
+          "providerPriority",
+          "sendTimeout",
+          "squad",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome da origem",
+            "example": "Development Product"
+          },
+          "type": {
+            "type": "string",
+            "description": "Tipo de mensagem por origem",
+            "example": "SMS"
+          },
+          "squad": {
+            "type": "string",
+            "description": "Nome do Squad responsável",
+            "example": "Cartões"
+          },
+          "maxRetries": {
+            "type": "integer",
+            "description": "Número máximo de tentativas de envio",
+            "format": "int32",
+            "example": 3
+          },
+          "sendTimeout": {
+            "type": "integer",
+            "description": "Tempo limite para envio",
+            "format": "int32",
+            "example": 1000
+          },
+          "providerPriority": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Lista de prioridades dos provedores a serem utilizados. Aceitos: Twilio, Zenvia e SNS",
+            "example": [
+              "Twilio",
+              "Zenvia"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para criar uma nova origem"
+      },
+      "CreateOriginResponseDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único da nova origem criada",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para a resposta ao criar uma nova origem"
+      },
+      "EmailDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sentAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MessageStatusDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OriginDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "squad": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "settings": {
+            "$ref": "#/components/schemas/SettingsDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ProviderByOriginDto": {
+        "required": [
+          "endpoint",
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "originId": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "default": {
+            "type": "boolean"
+          },
+          "endpoint": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProviderDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "delayed": {
+            "type": "boolean"
+          },
+          "type": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SchedulerDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "scheduleTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "processedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchOriginsDto": {
+        "required": [
+          "page",
+          "pageSize"
+        ],
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Número da página atual",
+            "format": "int32",
+            "example": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Quantidade de itens por página",
+            "format": "int32",
+            "example": 10
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Campo para ordenação (opcional). Default é CreatedAt",
+            "example": "CreatedAt"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Tipo de ordenação (opcional). Default é Ascending",
+            "example": "Ascending"
+          },
+          "type": {
+            "type": "string",
+            "description": "Tipo da mensagem aceito pelo origem (opcional)",
+            "example": "SMS"
+          },
+          "squad": {
+            "type": "string",
+            "description": "Nome da squad responsável (opcional)",
+            "example": "Cartões"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Requisição de busca de origens com paginação e filtros"
+      },
+      "SearchOriginsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OriginDto"
+            }
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SearchSmsDto": {
+        "required": [
+          "destination",
+          "endDate",
+          "page",
+          "pageSize",
+          "startDate"
+        ],
+        "type": "object",
+        "properties": {
+          "page": {
+            "type": "integer",
+            "description": "Número da página atual",
+            "format": "int32",
+            "example": 1
+          },
+          "pageSize": {
+            "type": "integer",
+            "description": "Quantidade de itens por página",
+            "format": "int32",
+            "example": 10
+          },
+          "sortBy": {
+            "type": "string",
+            "description": "Campo para ordenação (opcional). Default é CreatedAt",
+            "example": "CreatedAt"
+          },
+          "sortDirection": {
+            "type": "string",
+            "description": "Tipo de ordenação (opcional). Default é Ascending",
+            "example": "Ascending"
+          },
+          "destination": {
+            "type": "string",
+            "description": "Destino da mensagem (telefone contendo apenas números incluindo DDI e DDD. Exemplo: +5511999999999 (DDI + DDD + número))",
+            "example": "+5511999999999"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Data de início",
+            "format": "date",
+            "example": "2025-04-27"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "Data de fim",
+            "format": "date",
+            "example": "2025-04-28"
+          },
+          "originId": {
+            "type": "string",
+            "description": "ID da origem (opcional)",
+            "example": "66fb683c04479e96ca27adea"
+          },
+          "provider": {
+            "type": "string",
+            "description": "Provedor utilizado (opcional)",
+            "example": "Sns"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status da mensagem (opcional)",
+            "example": "delivered"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "ID do template da mensagem (opcional)",
+            "example": "66fb683c04479e96ca27adeb"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Requisição de busca de SMS com paginação e filtros"
+      },
+      "SearchSmsResponse": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SmsDto"
+            }
+          },
+          "totalItems": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "page": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SendEmailRequestDto": {
+        "required": [
+          "destination",
+          "priority",
+          "sender",
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "sender": {
+            "type": "string",
+            "description": "Remetente da mensagem a ser enviada",
+            "example": "sender@teste.com"
+          },
+          "destination": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Lista dos destinatários da mensagem a ser enviada",
+            "example": [
+              "destinatarion@test.com"
+            ]
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Identificador do template da mensagem",
+            "example": "64f7f5a1e19f8e1f8e7c8b3e"
+          },
+          "placeholders": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Informações das variáveis utilizadas pelo template (opcional)",
+            "example": {
+              "name": "João da Silva"
+            }
+          },
+          "priority": {
+            "type": "string",
+            "description": "Prioridade da mensagem: low, medium ou high",
+            "example": "high"
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttachmentDto"
+            },
+            "description": "Lista dos anexos da mensagem limitado a 30MB (opcional)"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para enviar Email"
+      },
+      "SendEmailResponseDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único da mensagem enviada",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de resposta ao envio de Email"
+      },
+      "SendSmsRequestDto": {
+        "required": [
+          "callback",
+          "destination",
+          "message",
+          "priority"
+        ],
+        "type": "object",
+        "properties": {
+          "destination": {
+            "type": "string",
+            "description": "Destino da mensagem (telefone contendo apenas números incluindo DDI e DDD. Exemplo: +5511999999999 (DDI + DDD + número))",
+            "example": "+5511999999999"
+          },
+          "message": {
+            "type": "string",
+            "description": "Conteúdo da mensagem a ser enviada",
+            "example": "Hello, this is a test message!"
+          },
+          "callback": {
+            "type": "boolean",
+            "description": "Indica se um callback será utilizado",
+            "example": false
+          },
+          "priority": {
+            "type": "string",
+            "description": "Prioridade da mensagem: low, medium ou high",
+            "example": "high"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para enviar SMS"
+      },
+      "SendSmsResponseDto": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único da mensagem enviada",
+            "example": "66fb683c04479e96ca27adea"
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO de resposta ao envio de SMS"
+      },
+      "SettingsDto": {
+        "type": "object",
+        "properties": {
+          "maxRetries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sendTimeout": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "providerPriority": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      },
+      "SmsDto": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "callbackStatus": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "sentAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "error": {
+            "type": "string"
+          },
+          "callbackError": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TemplateEmailDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "template": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "TemplateEmailResumeDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateMessageStatusRequestDto": {
+        "required": [
+          "enabled",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Descrição do status da mensagem",
+            "example": "delivered"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Definição se status está ativo/desativo",
+            "example": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para adicionar um novo status de mensagem"
+      },
+      "UpdateOriginRequestDto": {
+        "required": [
+          "enabled",
+          "maxRetries",
+          "name",
+          "providerPriority",
+          "sendTimeout",
+          "squad",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome da origem",
+            "example": "Development Product"
+          },
+          "type": {
+            "type": "string",
+            "description": "Tipo de mensagem por origem",
+            "example": "SMS"
+          },
+          "squad": {
+            "type": "string",
+            "description": "Nome do Squad responsável",
+            "example": "Cartões"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Indica se a origem está ativa ou inativa",
+            "example": true
+          },
+          "maxRetries": {
+            "type": "integer",
+            "description": "Número máximo de tentativas de envio",
+            "format": "int32",
+            "example": 3
+          },
+          "sendTimeout": {
+            "type": "integer",
+            "description": "Tempo limite em segundos para envio",
+            "format": "int32",
+            "example": 1000
+          },
+          "providerPriority": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Lista de prioridades dos provedores a serem utilizados. Aceitos: Twilio, Zenvia e SNS",
+            "example": [
+              "Twilio",
+              "Zenvia"
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para atualizar informações de uma origem"
+      },
+      "UpdateProviderFromOriginRequestDto": {
+        "required": [
+          "credentialsKey",
+          "enabled",
+          "endpoint",
+          "otherSettings"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Indica se o provedor está ativo ou inativo",
+            "example": false
+          },
+          "endpoint": {
+            "type": "string",
+            "description": "Endpoint do provedor para comunicação",
+            "example": "https://api.twilio.com/2010-04-01/Accounts/${AccountSID}/Messages.json"
+          },
+          "credentialsKey": {
+            "type": "string",
+            "description": "Chave de credenciais para autenticação no provedor",
+            "example": "twilio-api-key-xyz"
+          },
+          "otherSettings": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "description": "Configurações adicionais para o provedor em formato de chave-valor",
+            "example": {
+              "account_sid": "1223132132123"
+            }
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para atualizar informações de um provedor a partir da origem."
+      },
+      "UpdateProviderRequestDto": {
+        "required": [
+          "enabled"
+        ],
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Define se o provedor está ativo ou inativo",
+            "example": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para atualizar um provedor existente"
+      },
+      "UpdateTemplateEmailRequestDto": {
+        "required": [
+          "description",
+          "enabled",
+          "name",
+          "subject",
+          "template"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Define se o nome do template",
+            "example": "Boas vindas"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição com mais detalhes do template",
+            "example": "E-mail de boas vindas para os clientes após finalizarem o cadastro"
+          },
+          "subject": {
+            "type": "string",
+            "description": "Assunto do e-mail",
+            "example": "Cadastro realizado com sucesso {{.NomeDoCliente}}"
+          },
+          "template": {
+            "type": "string",
+            "description": "Base64 do template do e-mail em HTML",
+            "example": "PGh0bWw+dGVtcGxhdGUgdGVzdGU8L2h0bWw+"
+          },
+          "enabled": {
+            "type": "boolean",
+            "description": "Indica se o template de e-mail está ativo ou inativo",
+            "example": false
+          }
+        },
+        "additionalProperties": false,
+        "description": "DTO para atualizar um template de e-mail existente"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Insert the JWT token in format: Bearer {token}",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
