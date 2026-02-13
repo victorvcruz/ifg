@@ -1,0 +1,48 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[{APPVIZER} 2025]{appvizer2025}
+\abntrefinfo{{APPVIZER}}{{APPVIZER}}{2025}
+{{APPVIZER}. \emph{Gerenciamento de conhecimento: melhores práticas e
+  ferramentas}. 2025. Disponível em:
+  \url{https://www.appvizer.com.br/revista/colaboracao/knowledge-mgt/gerenciamento-de-conhecimento}.
+Acesso em: 25 nov. 2025.}
+
+\bibitem[{Atlassian} 2025]{atlassian2025management}
+\abntrefinfo{{Atlassian}}{{Atlassian}}{2025a}
+{{Atlassian}. \emph{Gestão de conhecimento com o Confluence}. 2025.
+  Disponível em:
+  \url{https://www.atlassian.com/br/software/confluence/use-cases/knowledge-management-software}.
+Acesso em: 25 nov. 2025.}
+
+\bibitem[{Atlassian} 2025]{atlassian2025practices}
+\abntrefinfo{{Atlassian}}{{Atlassian}}{2025b}
+{{Atlassian}. \emph{Práticas recomendadas de gerenciamento do conhecimento}.
+  2025. Disponível em:
+  \url{https://www.atlassian.com/br/software/confluence/resources/guides/best-practices/knowledge-management}.
+Acesso em: 25 nov. 2025.}
+
+\bibitem[Carvalho 2023]{carvalho2023}
+\abntrefinfo{Carvalho}{CARVALHO}{2023}
+{CARVALHO, A. Confluence, gestão do conhecimento \& gamificação.
+\emph{LinkedIn Pulse}, mar 2023.}
+
+\bibitem[{EESEL AI} 2025]{eesel2025}
+\abntrefinfo{{EESEL AI}}{{EESEL AI}}{2025}
+{{EESEL AI}. \emph{Como habilitar Confluence AI: Guia prático}. 2025.
+  Disponível em: \url{https://www.eesel.ai/pt/blog/enable-confluence-ai}.
+Acesso em: 25 nov. 2025.}
+
+\bibitem[{Nimble Evolution} 2025]{nimble2025case}
+\abntrefinfo{{Nimble Evolution}}{{Nimble Evolution}}{2025}
+{{Nimble Evolution}. \emph{Transformando a Indústria de Blindagem:
+  Eficiência, Automatização e Qualidade na Produção}. 2025. Disponível
+  em:
+  \url{https://br.nimbleevolution.com/case-de-sucesso-implementacao-das-solucoes-atlassian}.
+Acesso em: 29 nov. 2025.}
+
+\end{thebibliography}

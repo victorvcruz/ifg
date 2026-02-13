@@ -1,0 +1,56 @@
+\chapter{Materiais e Métodos}
+
+\section{A Ferramenta: Atlassian Confluence}
+
+\subsection{Principais Funcionalidades}
+
+O Confluence oferece um conjunto robusto de funcionalidades que o tornam uma ferramenta completa para gestão do conhecimento \cite{atlassian2025management}:
+
+\begin{itemize}
+    \item \textbf{Criação e Edição Colaborativa:} Múltiplos usuários podem editar documentos simultaneamente, com controle de versão completo.
+    \item \textbf{Armazenamento Centralizado:} Estrutura de espaços (spaces) e páginas hierárquicas para organização lógica do conteúdo.
+    \item \textbf{Integração Nativa:} Conexão direta com Jira, Bitbucket, e mais de mil aplicações via APIs.
+    \item \textbf{Permissões Granulares:} Controle no nível do usuário sobre acesso a espaços, páginas e documentos.
+    \item \textbf{Busca Avançada:} Indexação completa com filtros por tipo, data, autor e palavras-chave.
+    \item \textbf{Versionamento:} Rastreamento completo de mudanças com possibilidade de reverter para versões anteriores.
+\end{itemize}
+
+\subsection{Arquitetura Conceitual}
+
+O Confluence organiza-se em estruturas hierárquicas que facilitam a navegação e a gestão do conteúdo. Uma instância típica pode ser estruturada da seguinte forma:
+
+A instância do Confluence contém diversos espaços, como por exemplo um espaço de RH (com páginas de Políticas, Procedimentos de Onboarding e Benefícios), um espaço de Engenharia (com Arquitetura de Sistemas, Documentação de APIs e Padrões de Código) e um espaço de Operações (com Runbooks, Postmortems e Procedimentos de Disaster Recovery).
+
+\section{Melhores Práticas de Implementação}
+
+\subsection{Princípios Fundamentais}
+
+De acordo com as recomendações da Atlassian \cite{atlassian2025practices}, os princípios fundamentais para uma implementação eficaz são:
+
+\subsubsection{Fonte Única de Verdade (SSOT)}
+
+É fundamental centralizar todo conhecimento crítico no Confluence para evitar duplicação de informações, versões conflitantes de documentos e confusão sobre qual é o documento oficial.
+
+\subsubsection{Mentalidade Aberta}
+
+Recomenda-se minimizar permissões restritas, incentivar uma cultura de compartilhamento e acesso, além de criar um ambiente de segurança psicológica para experimentação.
+
+\subsubsection{Manutenção Viva}
+
+Para manter a base de conhecimento atualizada, é necessário designar proprietários por espaço e documento, estabelecer calendários de revisão (trimestral ou semestral) e utilizar o versionamento para rastrear a evolução do conteúdo.
+
+\subsubsection{Colaboração Dinâmica}
+
+Deve-se utilizar páginas para brainstorming, implementar workflows de aprovação (especialmente para documentos críticos) e incentivar feedback via comentários, não apenas por e-mails.
+
+\subsection{Estruturação Recomendada}
+
+Para uma implementação eficaz, recomenda-se seguir as seguintes diretrizes:
+
+\begin{enumerate}
+    \item \textbf{Templates Padrão:} Criar modelos para tipos comuns de documentos, como Meeting Notes, Decision Records e Runbooks.
+    \item \textbf{Convenção de Nomes:} Estabelecer padrão de nomenclatura para facilitar a busca, como por exemplo [PROJETO] Título Descritivo.
+    \item \textbf{Taxonomia de Tags:} Implementar um sistema consistente de tags por domínio, prioridade e status.
+    \item \textbf{Hierarquia de Espaços:} Alinhar a estrutura aos departamentos, equipes e projetos da organização.
+    \item \textbf{Arquivamento:} Definir uma política clara para arquivar conteúdo obsoleto sem deletá-lo.
+\end{enumerate}
