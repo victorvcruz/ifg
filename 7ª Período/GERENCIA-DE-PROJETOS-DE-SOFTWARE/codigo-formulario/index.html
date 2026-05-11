@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Sistema TDS - Cadastro Profissional Pro</title>
+ <style>
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color:
+#f4f7f6; display: flex; flex-direction: column; align-items: center; padding: 10px; margin: 0; }
+ .container { background: white; width: 95%; max-width: 550px; padding: 25px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 20px; box-sizing: border-box; }
+ h2 { color: #2c3e50; margin-top: 0; text-align: center; border-bottom: 2px solid
+#3498db; padding-bottom: 10px; }
+
+ .campo-grupo { display: flex; gap: 10px; margin-bottom: 12px; }
+ .flex-3 { flex: 3; } .flex-1 { flex: 1; }
+ input, select { width: 100%; padding: 12px; border: 1px solid #dcdde1; border-radius:
+6px; font-size: 15px; box-sizing: border-box; outline: none; transition: 0.3s; }
+ input:focus { border-color: #3498db; box-shadow: 0 0 5px rgba(52, 152, 219, 0.3); }
+ button { width: 100%; padding: 15px; background: #27ae60; color: white; border: none;
+border-radius: 6px; font-size: 17px; font-weight: bold; cursor: pointer; transition: 0.3s;
+margin-top: 10px; }
+ button:hover { background: #219150; }
+ .hidden { display: none; }
+ #resultado-area { width: 95%; max-width: 550px; margin-top: 20px; background: white;
+border-radius: 12px; padding: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); box-sizing:
+border-box; }
+ #lista-cadastros { max-height: 300px; overflow-y: auto; padding-right: 5px; }
+ .card-cadastro { background: #f9f9f9; padding: 12px; border-left: 5px solid #3498db;
+margin-bottom: 10px; border-radius: 4px; font-size: 14px; line-height: 1.5; position: relative;
+}
+
+ #lista-cadastros::-webkit-scrollbar { width: 6px; }
+ #lista-cadastros::-webkit-scrollbar-thumb { background: #bdc3c7; border-radius: 10px; }
+ </style>
+</head>
+<body>
+
+<div class="container">
+ <h2> Cadastro de Clientes</h2>
+
+ <input type="text" id="nome" placeholder="Nome e Sobrenome completo"
+style="margin-bottom: 12px;">
+
+ <div class="campo-grupo">
+ <input type="text" id="cidade" class="flex-3" placeholder="Cidade">
+ <select id="estado" class="flex-1">
+ <option value="AC">AC</option><option value="AL">AL</option><option
+value="AP">AP</option><option value="AM">AM</option><option
+value="BA">BA</option><option value="CE">CE</option><option
+value="DF">DF</option><option value="ES">ES</option><option value="GO"
+selected>GO</option><option value="MA">MA</option><option
+value="MT">MT</option><option value="MS">MS</option><option
+value="MG">MG</option><option value="PA">PA</option><option
+value="PB">PB</option><option value="PR">PR</option><option
+value="PE">PE</option><option value="PI">PI</option><option 
+value="RJ">RJ</option><option value="RN">RN</option><option
+value="RS">RS</option><option value="RO">RO</option><option
+value="RR">RR</option><option value="SC">SC</option><option
+value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option>
+ </select>
+ </div>
+ <input type="text" id="whatsapp" placeholder="WhatsApp: (00) 00000-0000"
+maxlength="15" oninput="mudarWpp(this)" style="margin-bottom: 12px;">
+ <div class="campo-grupo">
+ <input type="text" id="emailUser" class="flex-3" placeholder="Usuário do E-mail"
+oninput="validarCharEmail(this)">
+ <select id="emailDom" class="flex-1">
+ <option value="@gmail.com">@gmail.com</option>
+ <option value="@hotmail.com">@hotmail.com</option>
+ <option value="@outlook.com">@outlook.com</option>
+ <option value="@yahoo.com">@yahoo.com</option>
+ </select>
+ </div>
+ <select id="tipoPessoa" onchange="trocarDoc()" style="margin-bottom: 12px;">
+ <option value="PF">Pessoa Física (CPF)</option>
+ <option value="PJ">Pessoa Jurídica (CNPJ)</option>
+ </select>
+ <input type="text" id="cpf" placeholder="000.000.000-00" maxlength="14"
+oninput="mudarCPF(this)">
+ <input type="text" id="cnpj" class="hidden" placeholder="00.000.000/0000-00"
+maxlength="18" oninput="mudarCNPJ(this)">
+ <button onclick="cadastrarSistema()">Salvar no Sistema</button>
+</div>
+<div id="resultado-area">
+ <h3> Cadastros Realizados</h3>
+ <input type="text" id="pesquisa" placeholder="Pesquisar por nome, contato ou documento..." oninput="pesquisarCliente()" style="margin-bottom: 12px;">
+ <div id="lista-cadastros"></div>
+</div>
+
+<script>
+ let editandoId = null;
+ let clientes = [];
+
+ // --- LÓGICA POO ---
+ class Pessoa {
+ constructor(nome, cidade, estado, whatsapp, email) {
+ this.nome = this.limparEFormatar(nome);
+ this.cidade = this.limparEFormatar(cidade);
+ this.estado = estado;
+ this.whatsapp = whatsapp;
+ this.email = email.toLowerCase();
+ }
+ limparEFormatar(texto) {
+ let t = texto.trim().toLowerCase();
+ return t.split(' ').map(p => p.charAt(0).toUpperCase() + p.slice(1)).join(' ');
+ }
+ }
+ class PessoaFisica extends Pessoa {
+ constructor(nome, cidade, estado, whatsapp, email, cpf) {
+ super(nome, cidade, estado, whatsapp, email);
+ this.cpf = cpf;
+ }
+ }
+ class PessoaJuridica extends Pessoa {
+ constructor(nome, cidade, estado, whatsapp, email, cnpj) {
+ super(nome, cidade, estado, whatsapp, email);
+ this.cnpj = cnpj;
+ }
+ }
+
+ // --- CARREGAR DADOS (READ) ---
+ async function carregarDados() {
+ try {
+ const response = await fetch('http://localhost:3000/clientes');
+ if (response.ok) {
+ clientes = await response.json();
+ } else {
+ throw new Error("Falha no json-server");
+ }
+ } catch (e) {
+ console.warn("Erro ao ler json-server. Verifique se rodou: npx json-server clientes.json");
+ }
+ renderizarLista();
+ }
+
+ // --- SALVAR DADOS (CREATE / UPDATE / DELETE) ---
+ async function salvarDados(novoCliente, atualizandoId = null, excluindo = false) {
+ try {
+ if (excluindo) {
+ await fetch(`http://localhost:3000/clientes/${atualizandoId}`, { method: 'DELETE' });
+ } else if (atualizandoId !== null) {
+ await fetch(`http://localhost:3000/clientes/${atualizandoId}`, {
+ method: 'PUT',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify(novoCliente)
+ });
+ } else {
+ await fetch('http://localhost:3000/clientes', {
+ method: 'POST',
+ headers: { 'Content-Type': 'application/json' },
+ body: JSON.stringify(novoCliente)
+ });
+ }
+ } catch (e) {
+ console.error("Erro ao salvar no json-server:", e);
+ }
+ }
+
+ // --- FUNÇÕES DE VALIDAÇÃO ---
+ function validarCPF(cpf) {
+ cpf = cpf.replace(/[^\d]+/g,'');
+ if(cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false;
+ let soma = 0, resto;
+ for (let i=1; i<=9; i++) soma += parseInt(cpf.substring(i-1, i)) * (11 - i);
+ resto = (soma * 10) % 11;
+ if ((resto == 10) || (resto == 11)) resto = 0;
+ if (resto != parseInt(cpf.substring(9, 10))) return false;
+ soma = 0;
+ for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i-1, i)) * (12 - i);
+ resto = (soma * 10) % 11;
+ if ((resto == 10) || (resto == 11)) resto = 0;
+ if (resto != parseInt(cpf.substring(10, 11))) return false;
+ return true;
+ }
+ function validarCNPJ(cnpj) {
+ cnpj = cnpj.replace(/[^\d]+/g,'');
+ if(cnpj.length !== 14 || !!cnpj.match(/(\d)\1{13}/)) return false;
+ let tamanho = cnpj.length - 2;
+ let numeros = cnpj.substring(0,tamanho);
+ let digitos = cnpj.substring(tamanho);
+ let soma = 0, pos = tamanho - 7;
+ for (let i = tamanho; i >= 1; i--) {
+ soma += numeros.charAt(tamanho - i) * pos--;
+ if (pos < 2) pos = 9;
+ }
+ let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+ if (resultado != digitos.charAt(0)) return false;
+ tamanho = tamanho + 1; numeros = cnpj.substring(0,tamanho);
+ soma = 0; pos = tamanho - 7;
+ for (let i = tamanho; i >= 1; i--) {
+ soma += numeros.charAt(tamanho - i) * pos--;
+ if (pos < 2) pos = 9;
+ }
+ resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+ return resultado == digitos.charAt(1);
+ }
+
+ // --- MÁSCARAS E BLOQUEIOS ---
+ function validarCharEmail(i) {
+ i.value = i.value.replace(/[^a-zA-Z0-9._-]/g, '');
+ }
+ function mudarWpp(i) {
+ let v = i.value.replace(/\D/g,'');
+ v = v.replace(/^(\d{2})(\d)/g,"($1) $2");
+ v = v.replace(/(\d)(\d{4})$/,"$1-$2");
+ i.value = v;
+ }
+ function mudarCPF(i) {
+ let v = i.value.replace(/\D/g,'');
+ v = v.replace(/(\d{3})(\d)/,"$1.$2");
+ v = v.replace(/(\d{3})(\d)/,"$1.$2");
+ v = v.replace(/(\d{3})(\d{1,2})$/,"$1-$2");
+ i.value = v;
+ }
+ function mudarCNPJ(i) {
+ let v = i.value.replace(/\D/g,'');
+ v = v.replace(/^(\d{2})(\d)/,"$1.$2");
+ v = v.replace(/^(\d{2})\.(\d{3})(\d)/,"$1.$2.$3");
+ v = v.replace(/\.(\d{3})(\d)/,".$1/$2");
+ v = v.replace(/(\d{4})(\d)/,"$1-$2");
+ i.value = v;
+ }
+ function trocarDoc() {
+ const tipo = document.getElementById('tipoPessoa').value;
+ document.getElementById('cpf').classList.toggle('hidden', tipo !== 'PF');
+ document.getElementById('cnpj').classList.toggle('hidden', tipo !== 'PJ');
+ }
+
+ // --- FUNÇÃO PRINCIPAL (CREATE / UPDATE) ---
+ async function cadastrarSistema() {
+ const n = document.getElementById('nome').value;
+ const cid = document.getElementById('cidade').value;
+ const est = document.getElementById('estado').value;
+ const w = document.getElementById('whatsapp').value;
+ const userEmail = document.getElementById('emailUser').value;
+ const domEmail = document.getElementById('emailDom').value;
+ const tipo = document.getElementById('tipoPessoa').value;
+
+ if(!n || !cid || !userEmail) {
+ return alert("Por favor, preencha os dados obrigatórios!");
+ }
+
+ const nomeRegex = /^[A-Za-zÀ-ÿ\s']+$/;
+ if (!nomeRegex.test(n)) {
+ return alert("Caracteres especiais não são permitidos no nome!");
+ }
+
+ if (w && clientes.some(c => c.whatsapp === w && String(c.id) !== String(editandoId))) {
+ return alert("Número de WhatsApp já cadastrado!");
+ }
+
+ const emailCompleto = (userEmail + domEmail).toLowerCase();
+ let novoCad;
+
+ if(tipo === 'PF') {
+ const doc = document.getElementById('cpf').value;
+ if(!validarCPF(doc)) return alert("CPF Inválido ou Incompleto!");
+ if(clientes.some(c => c.cpf === doc && String(c.id) !== String(editandoId))) return alert("CPF já cadastrado!");
+ novoCad = new PessoaFisica(n, cid, est, w, emailCompleto, doc);
+ } else {
+ const doc = document.getElementById('cnpj').value;
+ if(!validarCNPJ(doc)) return alert("CNPJ Inválido ou Incompleto!");
+ if(clientes.some(c => c.cnpj === doc && String(c.id) !== String(editandoId))) return alert("CNPJ já cadastrado!");
+ novoCad = new PessoaJuridica(n, cid, est, w, emailCompleto, doc);
+ }
+
+ if(editandoId !== null) {
+ novoCad.id = editandoId;
+ await salvarDados(novoCad, editandoId, false);
+ editandoId = null;
+ document.querySelector('button[onclick="cadastrarSistema()"]').textContent = "Salvar no Sistema";
+ } else {
+ await salvarDados(novoCad, null, false);
+ }
+
+ document.getElementById('pesquisa').value = "";
+ await carregarDados();
+
+ document.getElementById('nome').value = "";
+ document.getElementById('cidade').value = "";
+ document.getElementById('emailUser').value = "";
+ document.getElementById('whatsapp').value = "";
+ document.getElementById('cpf').value = "";
+ document.getElementById('cnpj').value = "";
+ }
+
+ // --- EDITAR (READ para form + prepara UPDATE) ---
+ function editarCliente(id) {
+ const cliente = clientes.find(c => String(c.id) === String(id));
+ if (!cliente) return;
+
+ editandoId = cliente.id;
+ const [usuario, ...domParts] = cliente.email.split('@');
+ const dominio = domParts.join('@');
+
+ document.getElementById('nome').value = cliente.nome;
+ document.getElementById('cidade').value = cliente.cidade;
+ document.getElementById('estado').value = cliente.estado;
+ document.getElementById('whatsapp').value = cliente.whatsapp;
+ document.getElementById('emailUser').value = usuario;
+ document.getElementById('emailDom').value = `@${dominio}`;
+
+ if(cliente.cpf) {
+ document.getElementById('tipoPessoa').value = 'PF';
+ document.getElementById('cpf').value = cliente.cpf;
+ document.getElementById('cnpj').value = "";
+ } else {
+ document.getElementById('tipoPessoa').value = 'PJ';
+ document.getElementById('cnpj').value = cliente.cnpj;
+ document.getElementById('cpf').value = "";
+ }
+ trocarDoc();
+ document.querySelector('button[onclick="cadastrarSistema()"]').textContent = "Atualizar Cadastro";
+ }
+
+ // --- EXCLUIR (DELETE) ---
+ async function excluirCliente(id) {
+ if (confirm("Deseja realmente excluir este cliente?")) {
+ await salvarDados(null, id, true);
+ if (String(editandoId) === String(id)) {
+ editandoId = null;
+ document.querySelector('button[onclick="cadastrarSistema()"]').textContent = "Salvar no Sistema";
+ }
+ await carregarDados();
+ }
+ }
+
+ // --- PESQUISAR (READ filtrado) ---
+ function pesquisarCliente() {
+ const termo = document.getElementById('pesquisa').value.toLowerCase();
+ const filtrados = clientes.filter(c =>
+ c.nome.toLowerCase().includes(termo) ||
+ (c.cidade && c.cidade.toLowerCase().includes(termo)) ||
+ (c.estado && c.estado.toLowerCase().includes(termo)) ||
+ (c.whatsapp && c.whatsapp.includes(termo)) ||
+ (c.email && c.email.includes(termo)) ||
+ (c.cpf && c.cpf.includes(termo)) ||
+ (c.cnpj && c.cnpj.includes(termo))
+ );
+ renderizarLista(filtrados);
+ }
+
+ // --- RENDERIZAR LISTA ---
+ function renderizarLista(listaAtual = clientes) {
+ const lista = document.getElementById('lista-cadastros');
+ lista.innerHTML = '';
+ listaAtual.forEach(novoCad => {
+ const tipo = novoCad.cpf ? 'PF' : 'PJ';
+ const docLabel = tipo === 'PF' ? 'CPF' : 'CNPJ';
+ const docValor = tipo === 'PF' ? novoCad.cpf : novoCad.cnpj;
+ lista.innerHTML += `
+ <div class="card-cadastro">
+ <strong> ${novoCad.nome}</strong> (${tipo})<br>
+ ${novoCad.cidade} - ${novoCad.estado} <br>
+ ${novoCad.email} | ${novoCad.whatsapp} <br>
+ ${docLabel}: ${docValor}
+ <div style="margin-top: 10px; display: flex; gap: 10px;">
+ <button style="background: #f39c12; padding: 5px 10px; font-size: 13px;" onclick="editarCliente('${novoCad.id}')">Editar</button>
+ <button style="background: #e74c3c; padding: 5px 10px; font-size: 13px;" onclick="excluirCliente('${novoCad.id}')">Excluir</button>
+ </div>
+ </div>
+ `;
+ });
+ }
+
+ window.addEventListener('DOMContentLoaded', carregarDados);
+</script>
+</body>
+</html>

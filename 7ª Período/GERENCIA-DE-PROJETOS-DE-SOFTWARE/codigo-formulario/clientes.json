@@ -1,0 +1,23 @@
+{
+  "clientes": [
+    {
+      "nome": "Victor Hugo Vieira Cruz",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "whatsapp": "(62) 9330-1172",
+      "email": "hugov@gmail.com",
+      "cpf": "700.990.621-19",
+      "id": "2fvkldf7WUE"
+    },
+    {
+      "nome": "Alexander",
+      "cidade": "Goiano",
+      "estado": "GO",
+      "whatsapp": "(61) 92139-1201",
+      "email": "aaaa@gmail.com",
+      "cpf": "700.990.631-90",
+      "id": "RMyv0X2Nikg"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

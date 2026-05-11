@@ -1,7 +1,0 @@
-curl 'https://api.twilio.com/2010-04-01/Accounts/YOUR_TWILIO_ACCOUNT_SID/Messages.json' -X POST \
---data-urlencode 'To=whatsapp:+556293301172' \
---data-urlencode 'From=whatsapp:+14155238886' \
---data-urlencode 'Body=Your appointment is coming up on July 21 at 3PM' \
--u YOUR_TWILIO_ACCOUNT_SID:YOUR_TWILIO_AUTH_TOKEN
-
-
