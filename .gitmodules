@@ -1,3 +1,24 @@
 [submodule "7ª Período/TOPICOS-ESPECIAIS-EM-INTELIGENCIA-ARTIFICIAL/topicos-ia-projeto-final"]
 	path = 7ª Período/TOPICOS-ESPECIAIS-EM-INTELIGENCIA-ARTIFICIAL/topicos-ia-projeto-final
 	url = git@github.com:victorvcruz/topicos-ia-projeto-final.git
+[submodule "6ª Período/PESQUISA-OPERACIONAL/herd-optimizer"]
+	path = 6ª Período/PESQUISA-OPERACIONAL/herd-optimizer
+	url = git@github.com:victorvcruz/herd-optimizer.git
+[submodule "5ª Período/POO-II/academico-api"]
+	path = 5ª Período/POO-II/academico-api
+	url = git@github.com:victorvcruz/academico-api.git
+[submodule "5ª Período/POO-II/academico-frontend"]
+	path = 5ª Período/POO-II/academico-frontend
+	url = git@github.com:victorvcruz/academico-frontend.git
+[submodule "5ª Período/SD/it-ticketing-system"]
+	path = 5ª Período/SD/it-ticketing-system
+	url = https://github.com/victorvcruz/it-ticketing-system.git
+[submodule "5ª Período/SD/rmi"]
+	path = 5ª Período/SD/rmi
+	url = git@github.com:victorvcruz/rmi.git
+[submodule "5ª Período/SD/socket-messenger"]
+	path = 5ª Período/SD/socket-messenger
+	url = git@github.com:victorvcruz/socket-messenger.git
+[submodule "5ª Período/POO-II/dao"]
+	path = 5ª Período/POO-II/dao
+	url = git@github.com:victorvcruz/dao.git
