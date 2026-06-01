@@ -22,3 +22,6 @@
 [submodule "5ª Período/POO-II/dao"]
 	path = 5ª Período/POO-II/dao
 	url = git@github.com:victorvcruz/dao.git
+[submodule "7ª Período/TOPICOS-ESPECIAIS-EM-INTELIGENCIA-ARTIFICIAL/localai-assistant"]
+	path = 7ª Período/TOPICOS-ESPECIAIS-EM-INTELIGENCIA-ARTIFICIAL/localai-assistant
+	url = git@github.com:victorvcruz/localai-assistant.git
