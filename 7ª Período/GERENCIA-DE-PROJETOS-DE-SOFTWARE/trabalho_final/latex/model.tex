@@ -1,0 +1,832 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{lmodern}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\geometry{a4paper, left=3cm, right=2cm, top=3cm, bottom=2cm}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdftitle={QuadraLivre - Documento de Gerenciamento de Projeto},
+    pdfauthor={Victor Hugo Vieira Cruz, Filipe Moreira Coelho}
+}
+
+\titleformat{\chapter}[display]
+  {\bfseries\Large}
+  {\filright\MakeUppercase{\chaptertitlename} \Huge\thechapter}
+  {1ex}
+  {\titlerule\vspace{1ex}\filleft}
+  [\vspace{1ex}\titlerule]
+
+\setlength{\parindent}{1.3cm}
+\setlength{\parskip}{0.2cm}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+% ====================================================================
+\begin{document}
+\selectlanguage{brazil}
+
+% ----------------------------------------------------------
+% CAPA
+% ----------------------------------------------------------
+\begin{titlepage}
+\begin{center}
+
+\includegraphics[width=\textwidth]{ifg}
+
+\vspace{1cm}
+
+{\large\textbf{INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DE GOIÁS}}\\[4pt]
+{\large CÂMPUS GOIÂNIA}\\[4pt]
+{\large BACHARELADO EM SISTEMAS DE INFORMAÇÃO}
+
+\vspace{3cm}
+
+{\LARGE\textbf{QuadraLivre}}\\[12pt]
+{\Large Plataforma de Aluguel de Quadras Esportivas}\\[12pt]
+{\large Documento de Gerenciamento de Projeto}
+
+\vspace{3cm}
+
+{\large Victor Hugo Vieira Cruz}\\[6pt]
+{\large Filipe Moreira Coelho}
+
+\vfill
+
+{\large Goiânia, Brasil}\\[4pt]
+{\large Junho, 2026}
+
+\end{center}
+\end{titlepage}
+
+% ----------------------------------------------------------
+% FOLHA DE ROSTO
+% ----------------------------------------------------------
+\begin{titlepage}
+\begin{center}
+
+{\large\textbf{VICTOR HUGO VIEIRA CRUZ}}\\[6pt]
+{\large\textbf{FILIPE MOREIRA COELHO}}
+
+\vspace{4cm}
+
+{\LARGE\textbf{QuadraLivre --- Plataforma de Aluguel de Quadras Esportivas}}\\[12pt]
+{\Large Documento de Gerenciamento de Projeto}
+
+\vspace{3cm}
+
+\hfill
+\begin{minipage}{0.5\textwidth}
+Documento de Gerenciamento de Projeto apresentado à disciplina de Gerência de Projetos de Software, no curso de Bacharelado em Sistemas de Informação do Instituto Federal de Goiás -- Câmpus Goiânia, como requisito parcial de avaliação. 7º Período.
+\end{minipage}
+
+\vfill
+
+{\large Goiânia, Brasil}\\[4pt]
+{\large Junho, 2026}
+
+\end{center}
+\end{titlepage}
+
+% ----------------------------------------------------------
+% SUMÁRIO
+% ----------------------------------------------------------
+\tableofcontents
+\clearpage
+
+% ============================================================
+% CAPÍTULO 1 — TAP E VIABILIDADE
+% ============================================================
+\chapter{Termo de Abertura do Projeto (TAP) e Análise de Viabilidade}
+
+\section{Identificação do Projeto}
+
+\begin{table}[htbp]
+\centering
+\caption{Identificação do Projeto}
+\begin{tabular}{p{5cm} p{9cm}}
+\toprule
+\textbf{Campo} & \textbf{Descrição} \\
+\midrule
+Nome do Projeto & QuadraLivre -- Plataforma de Aluguel de Quadras Esportivas \\
+Gerentes do Projeto & Victor Hugo Vieira Cruz e Filipe Moreira Coelho \\
+Cliente & Donos de quadras esportivas e usuários praticantes de esportes \\
+Data de Emissão & 02 de Junho de 2026 \\
+Versão & 1.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Justificativa de Negócio}
+
+O mercado de aluguel de quadras esportivas no Brasil é fragmentado e predominantemente analógico. A maioria dos estabelecimentos ainda opera por meio de ligações telefônicas ou mensagens de WhatsApp para gerenciar reservas, o que gera ineficiências como dupla reserva, horários ociosos não preenchidos e dificuldade de escalabilidade. O cliente final, por sua vez, enfrenta dificuldade para encontrar quadras disponíveis, comparar preços e confirmar reservas de forma rápida.
+
+A QuadraLivre surge como uma plataforma digital que automatiza todo o ciclo de reserva: o usuário busca quadras por localização e modalidade, visualiza a grade de horários em tempo real e confirma a reserva instantaneamente; o dono da quadra gerencia preços, horários e bloqueios por meio de um painel web. O projeto se justifica pelo potencial de redução do tempo ocioso das quadras em até 30\%, aumento do faturamento dos estabelecimentos e melhoria significativa da experiência do usuário final, que elimina intermediários manuais.
+
+\section{Objetivos do Projeto}
+
+\begin{itemize}
+    \item Desenvolver um aplicativo mobile para que usuários encontrem e reservem quadras esportivas em tempo real.
+    \item Desenvolver um painel web para que administradores gerenciem seus estabelecimentos, quadras, preços e horários.
+    \item Implementar um sistema de reservas com confirmação imediata e controle de concorrência para evitar duplicidade.
+    \item Entregar o MVP em até 4 meses com as funcionalidades essenciais de busca, reserva e gestão.
+\end{itemize}
+
+\section{Marcos Principais do Projeto}
+
+\begin{table}[htbp]
+\centering
+\caption{Marcos Principais}
+\begin{tabular}{c p{8cm} c}
+\toprule
+\textbf{Marco} & \textbf{Descrição} & \textbf{Data Prevista} \\
+\midrule
+M1 & Aprovação do TAP e Viabilidade & Semana 1 \\
+M2 & Declaração do Escopo e EAP concluídos & Semana 2 \\
+M3 & Protótipo de alta fidelidade aprovado (Figma) & Semana 4 \\
+M4 & Modelagem do banco de dados concluída & Semana 5 \\
+M5 & Backend (APIs de busca e reserva) concluído & Semana 9 \\
+M6 & Frontend web (painel do dono) concluído & Semana 11 \\
+M7 & Frontend mobile (app do jogador) concluído & Semana 13 \\
+M8 & Testes de agendamento simultâneo concluídos & Semana 14 \\
+M9 & Homologação e publicação & Semana 16 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Orçamento Preliminar}
+
+\begin{table}[htbp]
+\centering
+\caption{Orçamento Preliminar}
+\begin{tabular}{p{9cm} r}
+\toprule
+\textbf{Item} & \textbf{Custo Estimado (R\$)} \\
+\midrule
+Recursos Humanos (4 profissionais $\times$ 4 meses) & 48.000,00 \\
+Ferramentas e Infraestrutura (servidores, licenças, design) & 7.200,00 \\
+Custos Operacionais (energia, internet, deslocamento) & 2.400,00 \\
+Taxas de publicação nas lojas (Apple e Google) & 400,00 \\
+Contingenciamento (10\%) & 5.800,00 \\
+\midrule
+\textbf{Total} & \textbf{63.800,00} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Análise de Viabilidade Econômica}
+
+\subsection{Premissas Adotadas}
+
+\begin{itemize}
+    \item Custo total do projeto (investimento inicial): R\$ 63.800,00
+    \item Custo operacional mensal estimado (servidores, manutenção, suporte): R\$ 2.500,00
+    \item Modelo de receita: assinatura mensal de R\$ 97,00 por estabelecimento + taxa de 10\% sobre o valor de cada reserva
+    \item Número de estabelecimentos captados no primeiro ano: 15
+    \item Média de reservas por estabelecimento por mês: 80
+    \item Valor médio por reserva: R\$ 100,00
+    \item Horizonte de análise: 12 meses
+\end{itemize}
+
+\subsection{Projeção de Receita Mensal}
+
+\begin{table}[htbp]
+\centering
+\caption{Projeção de Receita Mensal}
+\begin{tabular}{p{6.5cm} p{4.5cm} r}
+\toprule
+\textbf{Fonte} & \textbf{Cálculo} & \textbf{Valor (R\$)} \\
+\midrule
+Assinaturas (15 estab. $\times$ R\$ 97,00) & $15 \times 97{,}00$ & 1.455,00 \\
+Taxa sobre reservas & $15 \times 80 \times 100 \times 0{,}10$ & 12.000,00 \\
+\midrule
+\textbf{Receita Mensal Bruta} & & \textbf{13.455,00} \\
+\textbf{Receita Anual Bruta} & $13.455{,}00 \times 12$ & \textbf{161.460,00} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Cálculo do Retorno sobre o Investimento (ROI)}
+
+\begin{equation}
+ROI = \frac{\text{Receita Líquida Anual} - \text{Investimento Inicial}}{\text{Investimento Inicial}} \times 100
+\end{equation}
+
+Receita Líquida Anual = Receita Anual Bruta $-$ Custos Operacionais Anuais:
+
+$$\text{Receita Líquida Anual} = R\$ \; 161.460{,}00 - (R\$ \; 2.500{,}00 \times 12) = R\$ \; 131.460{,}00$$
+
+$$ROI = \frac{R\$ \; 131.460{,}00 - R\$ \; 63.800{,}00}{R\$ \; 63.800{,}00} \times 100 = \frac{R\$ \; 67.660{,}00}{R\$ \; 63.800{,}00} \times 100$$
+
+$$\boxed{ROI = 106{,}05\%}$$
+
+\subsection{Cálculo do Payback Simples}
+
+\begin{equation}
+\text{Payback Simples} = \frac{\text{Investimento Inicial}}{\text{Receita Líquida Mensal}}
+\end{equation}
+
+Receita Líquida Mensal = R\$ 13.455,00 $-$ R\$ 2.500,00 = \textbf{R\$ 10.955,00}
+
+$$\text{Payback Simples} = \frac{R\$ \; 63.800{,}00}{R\$ \; 10.955{,}00}$$
+
+$$\boxed{\text{Payback Simples} = 5{,}82 \text{ meses}}$$
+
+\subsection{Conclusão da Viabilidade}
+
+O projeto apresenta um ROI de 106,05\% no primeiro ano, indicando que o capital investido mais que dobra ao final do horizonte de análise. O Payback Simples de aproximadamente 6 meses demonstra que o investimento inicial é recuperado em meio período de operação, o que é considerado bastante favorável para projetos de software. Diante dos indicadores, o projeto é economicamente viável e recomenda-se sua execução.
+
+\section{Partes Interessadas (\textit{Stakeholders})}
+
+\begin{table}[htbp]
+\centering
+\caption{Partes Interessadas}
+\begin{tabular}{p{4cm} p{3cm} p{6.5cm}}
+\toprule
+\textbf{Stakeholder} & \textbf{Papel} & \textbf{Expectativa} \\
+\midrule
+Donos de quadras esportivas & Cliente pagante & Aumentar taxa de ocupação e automatizar gestão \\
+Usuários jogadores & Usuário final & Reservar quadras de forma rápida e prática \\
+Equipe de desenvolvimento & Executora & Entregar o MVP no prazo e com qualidade \\
+Investidores & Financiador & Retorno financeiro via taxa de corretagem \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Riscos Iniciais Identificados}
+
+\begin{table}[htbp]
+\centering
+\caption{Riscos Iniciais}
+\begin{tabular}{p{3.5cm} c c p{5cm}}
+\toprule
+\textbf{Risco} & \textbf{Impacto} & \textbf{Prob.} & \textbf{Ação Preventiva} \\
+\midrule
+Baixa adesão de estabelecimentos & Alto & Média & Programa de onboarding gratuito nos 2 primeiros meses \\
+Concorrência com soluções similares & Médio & Alta & Diferencial de UX e preços competitivos \\
+Complexidade técnica na concorrência de reservas & Alto & Baixa & Testes exaustivos de agendamento simultâneo \\
+Atraso no cronograma & Médio & Média & Planejamento com folga e reuniões semanais de acompanhamento \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+% CAPÍTULO 2 — DECLARAÇÃO DO ESCOPO
+% ============================================================
+\chapter{Declaração do Escopo do Projeto}
+
+\section{Descrição do Projeto}
+
+O projeto QuadraLivre consiste no desenvolvimento de uma plataforma digital para reserva de quadras esportivas, composta por um aplicativo mobile voltado para usuários jogadores e um painel web voltado para administradores de estabelecimentos. O objetivo é automatizar o processo de reserva, eliminando a dependência de canais manuais como telefone e WhatsApp, e oferecendo uma grade de horários em tempo real, confirmação imediata de reservas e ferramentas de gestão para os donos das quadras.
+
+\section{Descrição do Produto}
+
+O produto é composto por dois módulos principais:
+
+\subsection{Módulo Usuário (Aplicativo Mobile)}
+\begin{itemize}
+    \item Cadastro e autenticação de conta (email e senha).
+    \item Busca de quadras por localização geográfica e modalidade esportiva (futebol, beach tennis, vôlei, tênis, etc.).
+    \item Visualização da grade de horários disponíveis em tempo real para cada quadra.
+    \item Seleção de horário e confirmação imediata da reserva.
+    \item Histórico de reservas realizadas.
+    \item Notificação de lembrete de reserva.
+\end{itemize}
+
+\subsection{Módulo Administrador (Painel Web)}
+\begin{itemize}
+    \item Cadastro do estabelecimento (endereço, fotos, descrição, modalidades oferecidas).
+    \item Cadastro e gerenciamento de quadras (nome, tipo de superfície, capacidade).
+    \item Configuração de preços diferenciados por horário e dia da semana.
+    \item Visualização e gerenciamento da grade de reservas.
+    \item Bloqueio manual de horários para manutenção ou uso próprio.
+    \item Relatório básico de reservas e faturamento.
+\end{itemize}
+
+\section{Entregas do Projeto}
+
+\begin{table}[htbp]
+\centering
+\caption{Entregas do Projeto}
+\begin{tabular}{c p{12cm}}
+\toprule
+\textbf{Entrega} & \textbf{Descrição} \\
+\midrule
+E1 & Documento de Gerenciamento: TAP, Declaração de Escopo, EAP e Cronograma \\
+E2 & Protótipo Navegável: Protótipo de alta fidelidade no Figma \\
+E3 & Banco de Dados: Modelo relacional com tabelas de usuários, estabelecimentos, quadras, reservas e preços \\
+E4 & Backend: API RESTful com endpoints de autenticação, busca, reservas e administração \\
+E5 & Aplicativo Mobile: App Android/iOS com funcionalidades do módulo usuário \\
+E6 & Painel Web: Interface web responsiva com funcionalidades do módulo administrador \\
+E7 & Testes e Homologação: Casos de teste de agendamento simultâneo e validação do fluxo completo \\
+E8 & Documentação Técnica: Instruções de implantação e manual básico do usuário \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Critérios de Aceitação do Software}
+
+\begin{table}[htbp]
+\centering
+\caption{Critérios de Aceitação}
+\begin{tabular}{p{3.5cm} p{10cm}}
+\toprule
+\textbf{Requisito} & \textbf{Critério de Aceitação} \\
+\midrule
+Busca de quadras & O usuário deve encontrar quadras filtrando por modalidade e localização em até 3 segundos \\
+Visualização da grade & A grade de horários deve refletir o estado atual das reservas sem necessidade de recarregamento manual \\
+Confirmação de reserva & A reserva deve ser confirmada em até 5 segundos após a seleção do horário \\
+Concorrência & Dois usuários tentando reservar o mesmo horário simultaneamente: apenas o primeiro deve obter sucesso \\
+Painel do administrador & O dono da quadra deve conseguir bloquear um horário e a alteração deve refletir no app em até 10 segundos \\
+Autenticação & O usuário deve conseguir cadastrar-se e logar-se sem erros em 95\% das tentativas válidas \\
+Plataformas & O app deve funcionar em dispositivos Android 8.0+ e iOS 14+ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Inclusões do Escopo}
+
+\begin{itemize}
+    \item Cadastro e autenticação de usuários (jogadores e administradores).
+    \item Busca de quadras por localização e modalidade esportiva.
+    \item Grade de horários disponíveis em tempo real.
+    \item Reserva de horário com confirmação imediata e controle de concorrência.
+    \item Painel administrativo web para gestão de estabelecimento, quadras, preços e horários.
+    \item Bloqueio manual de horários pelo administrador.
+    \item Notificação de lembrete de reserva para o usuário.
+    \item Histórico de reservas para o usuário.
+    \item Relatório básico de reservas para o administrador.
+\end{itemize}
+
+\section{Exclusões do Escopo}
+
+\begin{itemize}
+    \item \textbf{Divisão de checkout (rache):} o sistema não fará o rateio automático do valor da reserva entre os participantes. O pagamento da reserva é integral por parte de quem realiza o agendamento.
+    \item \textbf{Sistema de matchmaking:} não será criada funcionalidade para formação de partidas públicas com desconhecidos para preencher vagas.
+    \item \textbf{Gateway de pagamento integrado:} nesta versão, a confirmação da reserva é feita sem processamento financeiro online. O pagamento será tratado presencialmente ou por acordos prévios entre as partes.
+    \item \textbf{Marketplace de produtos esportivos:} não haverá venda de produtos ou equipamentos dentro da plataforma.
+    \item \textbf{Aplicativo para administradores:} o módulo de administração será exclusivamente web, sem versão mobile dedicada para gestão.
+    \item \textbf{Chat interno entre usuários:} não haverá mensageria direta entre jogadores ou entre jogador e estabelecimento.
+    \item \textbf{Multi-idioma:} a plataforma será entregue exclusivamente em português brasileiro.
+\end{itemize}
+
+\section{Restrições do Projeto}
+
+\begin{itemize}
+    \item Prazo máximo de 16 semanas para entrega do MVP.
+    \item Equipe fixa de 4 pessoas (não é possível contratação adicional).
+    \item Orçamento máximo de R\$ 65.000,00.
+    \item A plataforma deve funcionar em dispositivos Android 8.0+ e iOS 14+.
+\end{itemize}
+
+\section{Premissas do Projeto}
+
+\begin{itemize}
+    \item A equipe terá acesso às ferramentas de desenvolvimento necessárias (IDEs, servidores de teste, Figma).
+    \item Os dados de quadras e estabelecimentos serão fornecidos pelos próprios donos no momento do cadastro.
+    \item A infraestrutura em nuvem será dimensionada para suportar até 100 requisições simultâneas.
+    \item O protótipo Figma será aprovado pelo cliente antes do início do desenvolvimento.
+\end{itemize}
+
+% ============================================================
+% CAPÍTULO 3 — EAP E DICIONÁRIO
+% ============================================================
+\chapter{Estrutura Analítica do Projeto (EAP) e Dicionário da EAP}
+
+\section{EAP --- Estrutura Analítica do Projeto}
+
+A EAP a seguir decompõe o projeto QuadraLivre em níveis hierárquicos orientados a entregas, com profundidade mínima de 3 níveis.
+
+\begin{footnotesize}
+\begin{verbatim}
+1.0 GERENCIAMENTO DO PROJETO
+    1.1 Iniciação e Viabilidade
+        1.1.1 Termo de Abertura do Projeto (TAP)
+        1.1.2 Análise de Viabilidade Econômica (ROI e Payback)
+    1.2 Escopo e Requisitos
+        1.2.1 Declaração do Escopo
+        1.2.2 EAP e Dicionário da EAP
+    1.3 Cronograma e Custo
+        1.3.1 Cronograma de Atividades
+        1.3.2 Estimativas PERT e Caminho Crítico (CPM)
+
+2.0 DESIGN E EXPERIÊNCIA (UI/UX)
+    2.1 Identidade Visual
+        2.1.1 Logotipo e Paleta de Cores
+        2.1.2 Fluxogramas de Navegação
+    2.2 Prototipagem
+        2.2.1 Wireframes de Baixa Fidelidade
+        2.2.2 Protótipo de Alta Fidelidade (Figma)
+
+3.0 DESENVOLVIMENTO DO SOFTWARE
+    3.1 Banco de Dados
+        3.1.1 Modelagem Conceitual e Lógica
+        3.1.2 Scripts de Criação das Tabelas
+        3.1.3 Procedures e Índices de Concorrência
+    3.2 Backend (API RESTful)
+        3.2.1 API de Autenticação (Cadastro e Login)
+        3.2.2 API de Busca de Quadras
+        3.2.3 API de Gerenciamento de Reservas
+        3.2.4 API de Administração (Estabelecimentos e Preços)
+    3.3 Frontend Mobile (App do Jogador)
+        3.3.1 Tela de Login e Cadastro
+        3.3.2 Tela de Busca e Filtros
+        3.3.3 Tela de Grade de Horários
+        3.3.4 Tela de Confirmação e Histórico
+    3.4 Frontend Web (Painel do Administrador)
+        3.4.1 Tela de Login
+        3.4.2 Tela de Cadastro do Estabelecimento
+        3.4.3 Tela de Gerenciamento de Quadras e Preços
+        3.4.4 Tela de Grade de Reservas e Bloqueios
+        3.4.5 Tela de Relatórios
+
+4.0 TESTES E IMPLANTAÇÃO
+    4.1 Testes
+        4.1.1 Casos de Teste de Agendamento Simultâneo
+        4.1.2 Testes de Integração (API + Mobile + Web)
+        4.1.3 Testes de Aceitação do Usuário
+    4.2 Implantação
+        4.2.1 Configuração de Infraestrutura em Nuvem
+        4.2.2 Publicação do App nas Lojas (Android e iOS)
+        4.2.3 Deploy do Painel Web
+        4.2.4 Homologação Final
+\end{verbatim}
+\end{footnotesize}
+
+\section{Dicionário da EAP}
+
+\subsection{Pacote 1.0 --- Gerenciamento do Projeto}
+
+\begin{longtable}{c p{2.5cm} p{3.5cm} p{3.5cm} p{2cm}}
+\caption{Dicionário da EAP --- Gerenciamento do Projeto} \\
+\toprule
+\textbf{ID} & \textbf{Nome} & \textbf{Descrição} & \textbf{Critério de Aceitação} & \textbf{Resp.} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Nome} & \textbf{Descrição} & \textbf{Critério de Aceitação} & \textbf{Resp.} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continua na próxima página}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+1.1.1 & TAP & Documento formal que autoriza o início do projeto, contendo justificativa, marcos, orçamento e riscos iniciais & Documento revisado e aprovado pelo cliente & GP \\
+1.1.2 & Viabilidade Econômica & Cálculo de ROI e Payback Simples com base em projeções de receita e custos & ROI superior a 100\% e Payback inferior a 12 meses & GP \\
+1.2.1 & Declaração do Escopo & Documento que define o limite do projeto, incluindo inclusões, exclusões, entregas e critérios de aceitação & Aprovado pelo cliente e alinhado ao TAP & GP \\
+1.2.2 & EAP e Dicionário & Decomposição hierárquica do trabalho em pacotes de 3 níveis, com descrição detalhada de cada pacote & EAP com no mínimo 3 níveis e dicionário preenchido & GP \\
+1.3.1 & Cronograma & Lista de tarefas com verbos de ação, durações estimadas e dependências entre atividades & Cronograma aprovado pela equipe & GP \\
+1.3.2 & PERT e CPM & Cálculo de duração usando fórmula PERT e identificação do caminho crítico & Caminho crítico claramente identificado e justificado & GP \\
+\end{longtable}
+
+\subsection{Pacote 2.0 --- Design e Experiência (UI/UX)}
+
+\begin{longtable}{c p{2.5cm} p{3.5cm} p{3.5cm} p{2cm}}
+\caption{Dicionário da EAP --- Design e Experiência} \\
+\toprule
+\textbf{ID} & \textbf{Nome} & \textbf{Descrição} & \textbf{Critério de Aceitação} & \textbf{Resp.} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Nome} & \textbf{Descrição} & \textbf{Critério de Aceitação} & \textbf{Resp.} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+2.1.1 & Logotipo e Paleta & Identidade visual da plataforma incluindo logotipo, tipografia e esquema de cores & Aprovado pelo cliente em reunião de alinhamento & Designer \\
+2.1.2 & Fluxogramas & Diagramas que mapeiam o fluxo do usuário no app e no painel web & Validados pela equipe antes da prototipagem & Designer \\
+2.2.1 & Wireframes & Esboços iniciais das telas sem preocupação visual, focando em layout e funcionalidade & Revisados e aprovados pela equipe & Designer \\
+2.2.2 & Protótipo Figma & Protótipo navegável com design final, interações e transições entre telas & Aprovado pelo cliente como representação fiel do produto & Designer \\
+\end{longtable}
+
+\subsection{Pacote 3.0 --- Desenvolvimento do Software}
+
+\begin{longtable}{c p{2.2cm} p{3.2cm} p{3.5cm} p{2.2cm}}
+\caption{Dicionário da EAP --- Desenvolvimento do Software} \\
+\toprule
+\textbf{ID} & \textbf{Nome} & \textbf{Descrição} & \textbf{Critério de Aceitação} & \textbf{Resp.} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Nome} & \textbf{Descrição} & \textbf{Critério de Aceitação} & \textbf{Resp.} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continua na próxima página}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+3.1.1 & Modelagem BD & Diagrama entidade-relacionamento e modelo lógico do banco de dados & Modelo normalizado e revisado pela equipe & Dev. Backend \\
+3.1.2 & Scripts SQL & SQL para criação do schema do banco de dados & Scripts executados sem erros em ambiente de dev & Dev. Backend \\
+3.1.3 & Procedures e Índices & Procedures e índices no banco para garantir integridade em reservas simultâneas & Testes de concorrência passam sem perda de dados & Dev. Backend \\
+3.2.1 & API Autenticação & Endpoints de cadastro, login e recuperação de senha & 95\% dos testes de autenticação passam & Dev. Backend \\
+3.2.2 & API Busca & Endpoint que retorna quadras filtradas por localização e modalidade & Resposta em até 3 segundos para 100 quadras & Dev. Backend \\
+3.2.3 & API Reservas & Endpoints de criar, listar e cancelar reservas com controle de concorrência & Reservas simultâneas tratadas sem duplicidade & Dev. Backend \\
+3.2.4 & API Administração & Endpoints para CRUD de estabelecimentos, quadras e preços & Todas as operações CRUD funcionam conforme especificado & Dev. Backend \\
+3.3.1 & Login Mobile & Interface no app para autenticação do usuário & Funciona em Android 8.0+ e iOS 14+ & Dev. Mobile \\
+3.3.2 & Busca Mobile & Interface com campos de busca por localização e filtros por modalidade & Busca retorna resultados em até 2 segundos & Dev. Mobile \\
+3.3.3 & Grade Mobile & Exibição visual dos horários disponíveis e ocupados para uma quadra & Grade atualiza em tempo real após cada reserva & Dev. Mobile \\
+3.3.4 & Confirmação Mobile & Tela de confirmação da reserva e listagem do histórico do usuário & Confirmação exibida em até 2 segundos & Dev. Mobile \\
+3.4.1 & Login Web & Interface web de autenticação para o administrador & Login funcional com validação de credenciais & Dev. Web \\
+3.4.2 & Cadastro Estab. & Formulário web para cadastro de dados do estabelecimento & Dados salvos corretamente no banco de dados & Dev. Web \\
+3.4.3 & Quadras/Preços Web & Interface para cadastro de quadras e configuração de preços por horário & Preços diferenciados por dia/hora aplicados & Dev. Web \\
+3.4.4 & Grade/Bloqueios Web & Visualização das reservas e opção de bloqueio manual de horários & Bloqueio reflete no app em até 10 segundos & Dev. Web \\
+3.4.5 & Relatórios Web & Exibição de relatório básico de reservas e faturamento & Dados apresentados correspondem ao banco & Dev. Web \\
+\end{longtable}
+
+\subsection{Pacote 4.0 --- Testes e Implantação}
+
+\begin{longtable}{c p{2.5cm} p{3.2cm} p{3.5cm} p{2cm}}
+\caption{Dicionário da EAP --- Testes e Implantação} \\
+\toprule
+\textbf{ID} & \textbf{Nome} & \textbf{Descrição} & \textbf{Critério de Aceitação} & \textbf{Resp.} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Nome} & \textbf{Descrição} & \textbf{Critério de Aceitação} & \textbf{Resp.} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+4.1.1 & Testes Concorrência & Cenários de teste para validar que dois usuários não reservam o mesmo horário & 100\% dos cenários de concorrência passam & Dev. Backend \\
+4.1.2 & Testes Integração & Testes que validam a comunicação entre API, app mobile e painel web & Fluxo completo de reserva funciona ponta a ponta & Todos \\
+4.1.3 & Testes Aceitação & Validação do protótipo e do software com usuários reais & Usuários realizam reserva sem assistência & GP \\
+4.2.1 & Infra Nuvem & Setup de servidores, banco de dados e domínios em ambiente de nuvem & Ambiente acessível e funcional 24/7 & Dev. Backend \\
+4.2.2 & Publicação Lojas & Submissão do app para Google Play Store e Apple App Store & App aprovado e disponível nas duas lojas & Dev. Mobile \\
+4.2.3 & Deploy Web & Publicação do painel administrativo em servidor web & Painel acessível via URL pública & Dev. Web \\
+4.2.4 & Homologação & Validação completa do sistema em ambiente de produção & Todos os critérios de aceitação atendidos & GP \\
+\end{longtable}
+
+% ============================================================
+% CAPÍTULO 4 — CRONOGRAMA E CPM
+% ============================================================
+\chapter{Cronograma de Atividades e Caminho Crítico (CPM)}
+
+\section{Lista de Atividades com Verbos de Ação}
+
+As atividades abaixo foram derivadas dos pacotes de trabalho da EAP e descritas utilizando verbos de ação no infinitivo. Cada atividade possui um ID único, descrição, precedência e estimativas de duração (em dias úteis).
+
+\begin{longtable}{c p{6cm} c c}
+\caption{Lista de Atividades e Precedências} \\
+\toprule
+\textbf{ID} & \textbf{Atividade} & \textbf{Pacote EAP} & \textbf{Predecessora} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Atividade} & \textbf{Pacote EAP} & \textbf{Predecessora} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{4}{r}{\textit{Continua na próxima página}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+A & Elaborar Termo de Abertura do Projeto (TAP) & 1.1.1 & -- \\
+B & Calcular ROI e Payback Simples & 1.1.2 & A \\
+C & Elaborar Declaração do Escopo & 1.2.1 & B \\
+D & Construir EAP e Dicionário da EAP & 1.2.2 & C \\
+E & Criar Cronograma e Identificar Caminho Crítico & 1.3 & D \\
+F & Desenvolver Identidade Visual (Logo e Paleta) & 2.1.1 & E \\
+G & Desenhar Fluxogramas de Navegação & 2.1.2 & F \\
+H & Criar Wireframes de Baixa Fidelidade & 2.2.1 & G \\
+I & Elaborar Protótipo de Alta Fidelidade (Figma) & 2.2.2 & H \\
+J & Modelar Banco de Dados (Conceitual e Lógico) & 3.1.1 & I \\
+K & Escrever Scripts SQL de Criação das Tabelas & 3.1.2 & J \\
+L & Implementar Procedures e Índices de Concorrência & 3.1.3 & K \\
+M & Desenvolver API de Autenticação & 3.2.1 & L \\
+N & Desenvolver API de Busca de Quadras & 3.2.2 & M \\
+O & Desenvolver API de Gerenciamento de Reservas & 3.2.3 & N \\
+P & Desenvolver API de Administração & 3.2.4 & M \\
+Q & Desenvolver Telas de Login e Cadastro (Mobile) & 3.3.1 & I \\
+R & Desenvolver Tela de Busca e Filtros (Mobile) & 3.3.2 & Q \\
+S & Desenvolver Tela de Grade de Horários (Mobile) & 3.3.3 & R, O \\
+T & Desenvolver Tela de Confirmação e Histórico (Mobile) & 3.3.4 & S \\
+U & Desenvolver Tela de Login (Painel Web) & 3.4.1 & I \\
+V & Desenvolver Tela de Cadastro do Estabelecimento (Web) & 3.4.2 & U, P \\
+W & Desenvolver Tela de Gerenciamento de Quadras e Preços (Web) & 3.4.3 & V \\
+X & Desenvolver Tela de Grade de Reservas e Bloqueios (Web) & 3.4.4 & W, O \\
+Y & Desenvolver Tela de Relatórios (Web) & 3.4.5 & X \\
+Z & Elaborar Casos de Teste de Agendamento Simultâneo & 4.1.1 & L \\
+AA & Executar Testes de Integração (API + Mobile + Web) & 4.1.2 & T, Y, Z \\
+AB & Realizar Testes de Aceitação do Usuário & 4.1.3 & AA \\
+AC & Configurar Infraestrutura em Nuvem & 4.2.1 & AA \\
+AD & Publicar App nas Lojas (Android e iOS) & 4.2.2 & AC \\
+AE & Realizar Deploy do Painel Web & 4.2.3 & AC \\
+AF & Conduzir Homologação Final & 4.2.4 & AD, AE, AB \\
+\end{longtable}
+
+\section{Estimativas de Duração (PERT)}
+
+Para cada atividade, foram definidas três estimativas de duração em dias úteis: \textbf{O} (Otimista), \textbf{M} (Mais Provável) e \textbf{P} (Pessimista). A fórmula PERT utilizada:
+
+\begin{equation}
+TE = \frac{O + 4M + P}{6}
+\end{equation}
+
+\begin{longtable}{c p{5.5cm} c c c c}
+\caption{Estimativas PERT de Duração} \\
+\toprule
+\textbf{ID} & \textbf{Atividade} & \textbf{O} & \textbf{M} & \textbf{P} & \textbf{TE (dias)} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Atividade} & \textbf{O} & \textbf{M} & \textbf{P} & \textbf{TE (dias)} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continua na próxima página}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+A & Elaborar TAP & 2 & 3 & 5 & 3,2 \\
+B & Calcular ROI e Payback & 1 & 2 & 3 & 2,0 \\
+C & Elaborar Declaração do Escopo & 2 & 3 & 5 & 3,2 \\
+D & Construir EAP e Dicionário & 2 & 3 & 4 & 3,0 \\
+E & Criar Cronograma e CPM & 1 & 2 & 3 & 2,0 \\
+F & Desenvolver Identidade Visual & 3 & 5 & 8 & 5,2 \\
+G & Desenhar Fluxogramas & 2 & 3 & 5 & 3,2 \\
+H & Criar Wireframes & 3 & 4 & 6 & 4,2 \\
+I & Elaborar Protótipo Figma & 4 & 6 & 10 & 6,3 \\
+J & Modelar Banco de Dados & 2 & 4 & 6 & 4,0 \\
+K & Escrever Scripts SQL & 1 & 2 & 4 & 2,2 \\
+L & Implementar Procedures e Índices & 2 & 4 & 7 & 4,2 \\
+M & Desenvolver API de Autenticação & 3 & 5 & 8 & 5,2 \\
+N & Desenvolver API de Busca & 4 & 6 & 10 & 6,3 \\
+O & Desenvolver API de Reservas & 5 & 8 & 14 & 8,5 \\
+P & Desenvolver API de Administração & 3 & 5 & 8 & 5,2 \\
+Q & Desenvolver Login/Cadastro Mobile & 4 & 6 & 10 & 6,3 \\
+R & Desenvolver Busca/Filtros Mobile & 3 & 5 & 8 & 5,2 \\
+S & Desenvolver Grade de Horários Mobile & 4 & 7 & 12 & 7,3 \\
+T & Desenvolver Confirmação/Histórico Mobile & 3 & 4 & 7 & 4,3 \\
+U & Desenvolver Login (Painel Web) & 2 & 3 & 5 & 3,2 \\
+V & Desenvolver Cadastro Estabelecimento Web & 3 & 5 & 8 & 5,2 \\
+W & Desenvolver Gerenc. Quadras/Preços Web & 4 & 6 & 10 & 6,3 \\
+X & Desenvolver Grade Reservas/Bloqueios Web & 4 & 7 & 12 & 7,3 \\
+Y & Desenvolver Relatórios Web & 2 & 4 & 6 & 4,0 \\
+Z & Elaborar Casos de Teste Simultâneo & 2 & 3 & 5 & 3,2 \\
+AA & Executar Testes de Integração & 3 & 5 & 8 & 5,2 \\
+AB & Realizar Testes de Aceitação & 2 & 3 & 5 & 3,2 \\
+AC & Configurar Infraestrutura em Nuvem & 2 & 3 & 5 & 3,2 \\
+AD & Publicar App nas Lojas & 3 & 5 & 10 & 5,5 \\
+AE & Realizar Deploy do Painel Web & 1 & 2 & 3 & 2,0 \\
+AF & Conduzir Homologação Final & 2 & 3 & 5 & 3,2 \\
+\end{longtable}
+
+\section{Caminho Crítico (CPM)}
+
+\subsection{\textit{Forward Pass} (Inícios e Términos Mais Cedo)}
+
+\begin{longtable}{c p{5.5cm} c c c}
+\caption{\textit{Forward Pass} --- IMC e TMC} \\
+\toprule
+\textbf{ID} & \textbf{Atividade} & \textbf{TE} & \textbf{IMC} & \textbf{TMC} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{ID} & \textbf{Atividade} & \textbf{TE} & \textbf{IMC} & \textbf{TMC} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{\textit{Continua na próxima página}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+A & Elaborar TAP & 3,2 & 0,0 & 3,2 \\
+B & Calcular ROI e Payback & 2,0 & 3,2 & 5,2 \\
+C & Elaborar Declaração do Escopo & 3,2 & 5,2 & 8,4 \\
+D & Construir EAP e Dicionário & 3,0 & 8,4 & 11,4 \\
+E & Criar Cronograma e CPM & 2,0 & 11,4 & 13,4 \\
+F & Desenvolver Identidade Visual & 5,2 & 13,4 & 18,6 \\
+G & Desenhar Fluxogramas & 3,2 & 18,6 & 21,8 \\
+H & Criar Wireframes & 4,2 & 21,8 & 26,0 \\
+I & Elaborar Protótipo Figma & 6,3 & 26,0 & 32,3 \\
+J & Modelar Banco de Dados & 4,0 & 32,3 & 36,3 \\
+K & Escrever Scripts SQL & 2,2 & 36,3 & 38,5 \\
+L & Implementar Procedures & 4,2 & 38,5 & 42,7 \\
+M & API de Autenticação & 5,2 & 42,7 & 47,9 \\
+N & API de Busca & 6,3 & 47,9 & 54,2 \\
+O & API de Reservas & 8,5 & 54,2 & 62,7 \\
+P & API de Administração & 5,2 & 47,9 & 53,1 \\
+Q & Login/Cadastro Mobile & 6,3 & 32,3 & 38,6 \\
+R & Busca/Filtros Mobile & 5,2 & 38,6 & 43,8 \\
+S & Grade Horários Mobile & 7,3 & 62,7 & 70,0 \\
+T & Confirmação/Histórico Mobile & 4,3 & 70,0 & 74,3 \\
+U & Login Web & 3,2 & 32,3 & 35,5 \\
+V & Cadastro Estabelecimento Web & 5,2 & 53,1 & 58,3 \\
+W & Gerenciamento Quadras/Preços Web & 6,3 & 58,3 & 64,6 \\
+X & Grade Reservas/Bloqueios Web & 7,3 & 64,6 & 71,9 \\
+Y & Relatórios Web & 4,0 & 71,9 & 75,9 \\
+Z & Casos de Teste Simultâneo & 3,2 & 42,7 & 45,9 \\
+AA & Testes de Integração & 5,2 & 75,9 & 81,1 \\
+AB & Testes de Aceitação & 3,2 & 81,1 & 84,3 \\
+AC & Configurar Infraestrutura Nuvem & 3,2 & 81,1 & 84,3 \\
+AD & Publicar App nas Lojas & 5,5 & 84,3 & 89,8 \\
+AE & Deploy Painel Web & 2,0 & 84,3 & 86,3 \\
+AF & Homologação Final & 3,2 & 89,8 & 93,0 \\
+\end{longtable}
+
+\textbf{Observações sobre IMC com múltiplas predecessoras:}
+\begin{itemize}
+    \item S: $IMC = \max(TMC_R = 43{,}8;\; TMC_O = 62{,}7) = \mathbf{62{,}7}$
+    \item V: $IMC = \max(TMC_U = 35{,}5;\; TMC_P = 53{,}1) = \mathbf{53{,}1}$
+    \item X: $IMC = \max(TMC_W = 64{,}6;\; TMC_O = 62{,}7) = \mathbf{64{,}6}$
+    \item AA: $IMC = \max(TMC_T = 74{,}3;\; TMC_Y = 75{,}9;\; TMC_Z = 45{,}9) = \mathbf{75{,}9}$
+    \item AF: $IMC = \max(TMC_{AD} = 89{,}8;\; TMC_{AE} = 86{,}3;\; TMC_{AB} = 84{,}3) = \mathbf{89{,}8}$
+\end{itemize}
+
+\subsection{Identificação do Caminho Crítico}
+
+O caminho crítico é composto pelas atividades com folga total = 0 (identificadas via \textit{Backward Pass}):
+
+\begin{center}
+\textbf{A $\rightarrow$ B $\rightarrow$ C $\rightarrow$ D $\rightarrow$ E $\rightarrow$ F $\rightarrow$ G $\rightarrow$ H $\rightarrow$ I $\rightarrow$ J $\rightarrow$ K $\rightarrow$ L $\rightarrow$ M $\rightarrow$ P $\rightarrow$ V $\rightarrow$ W $\rightarrow$ X $\rightarrow$ Y $\rightarrow$ AA $\rightarrow$ AC $\rightarrow$ AD $\rightarrow$ AF}
+\end{center}
+
+\textbf{Duração total: 93,0 dias ($\approx$18,6 semanas)}
+
+\subsection{Interpretação}
+
+O gargalo do projeto está na sequência de desenvolvimento do \textbf{painel web} (P $\rightarrow$ V $\rightarrow$ W $\rightarrow$ X $\rightarrow$ Y), que depende da conclusão da API de Administração (P) e acumula a maior duração total entre os caminhos da rede.
+
+A trilha mobile (N $\rightarrow$ O $\rightarrow$ S $\rightarrow$ T) possui folga de apenas \textbf{1,6 dias}, configurando um caminho quase-crítico que exige monitoramento constante.
+
+\subsection{Atividades com Folga}
+
+\begin{table}[htbp]
+\centering
+\caption{Atividades com Folga}
+\begin{tabular}{c p{4.5cm} c c p{3cm}}
+\toprule
+\textbf{ID} & \textbf{Atividade} & \textbf{TE} & \textbf{Folga (dias)} & \textbf{Observação} \\
+\midrule
+N & API de Busca & 6,3 & 1,6 & Quase-crítico \\
+O & API de Reservas & 8,5 & 1,6 & Quase-crítico \\
+S & Grade Horários Mobile & 7,3 & 1,6 & Quase-crítico \\
+T & Confirmação/Histórico Mobile & 4,3 & 1,6 & Quase-crítico \\
+Q & Login/Cadastro Mobile & 6,3 & 20,5 & Independente do backend \\
+R & Busca/Filtros Mobile & 5,2 & 20,5 & Dependente apenas de Q \\
+U & Login Web & 3,2 & 17,6 & V espera P (que governa) \\
+Z & Casos de Teste Simultâneo & 3,2 & 30,0 & Bastante antecipável \\
+AB & Testes de Aceitação & 3,2 & 5,5 & Dependente de AA \\
+AE & Deploy Painel Web & 2,0 & 3,5 & AF espera AD (mais longo) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Ajuste para 16 Semanas (Estratégia de Compressão)}
+
+O cronograma teórico resulta em 93,0 dias ($\approx$18,6 semanas), excedendo o limite de 16 semanas (80 dias úteis) em \textbf{13 dias}. As seguintes estratégias de compressão serão aplicadas:
+
+\subsection{\textit{Fast-tracking} (Paralelismo Ampliado)}
+\begin{itemize}
+    \item Iniciar V (Cadastro Estabelecimento Web) parcialmente em paralelo com P (API Administração), utilizando \textit{mocks} das APIs durante o desenvolvimento do frontend. Redução estimada: \textbf{4 dias}.
+    \item Iniciar X (Grade Reservas/Bloqueios Web) antes da conclusão total de W, trabalhando nos componentes de visualização enquanto a lógica de preços é finalizada. Redução estimada: \textbf{3 dias}.
+\end{itemize}
+
+\subsection{\textit{Crashing} (Alocação de Recurso Adicional)}
+\begin{itemize}
+    \item Alocar desenvolvedor mobile como suporte no pacote X (Grade Reservas/Bloqueios Web), atividade mais longa do caminho crítico no frontend web (7,3 dias $\rightarrow$ estimativa reduzida para 5 dias). Redução: \textbf{2,3 dias}.
+\end{itemize}
+
+\subsection{Redução de Escopo Interno}
+\begin{itemize}
+    \item Simplificar Y (Relatórios Web): entregar apenas relatório de reservas na v1, postergando relatório de faturamento para iteração seguinte. Redução: \textbf{2 dias} (de 4,0 para 2,0 dias).
+\end{itemize}
+
+\subsection{Paralelismo Backend-Frontend}
+\begin{itemize}
+    \item As equipes de backend e frontend mobile/web trabalham simultaneamente a partir da aprovação do protótipo (I), com o backend priorizando a API de Administração (P) sobre a API de Busca (N) para destravar o caminho crítico mais cedo.
+\end{itemize}
+
+\textbf{Resultado após compressão:} Redução total estimada de $\approx$11,3 dias + margem de 1,7 dias absorvida pela folga do caminho quase-crítico (N$\rightarrow$O$\rightarrow$S$\rightarrow$T). Duração efetiva: \textbf{$\approx$80 dias úteis}, compatível com 16 semanas.
+
+\section{Conclusão do Cronograma}
+
+O caminho crítico do projeto QuadraLivre está concentrado no desenvolvimento do painel web administrativo (P, V, W, X e Y), que depende da API de Administração e acumula a maior duração total. Este é o gargalo do projeto e deve receber atenção prioritária. Qualquer atraso nas atividades do caminho crítico impacta diretamente a data de entrega final.
+
+O caminho quase-crítico (N $\rightarrow$ O $\rightarrow$ S $\rightarrow$ T, folga de 1,6 dias) exige monitoramento constante, pois qualquer desvio superior a 1,6 dias transforma a trilha mobile no novo caminho crítico.
+
+As atividades com folga significativa (Q, R, U, Z) oferecem margem para realocação de recursos e absorção de desvios sem comprometer o prazo.
+
+\end{document}

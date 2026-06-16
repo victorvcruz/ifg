@@ -20,7 +20,7 @@ fonts:
   <h1 class="!text-4xl">Frameworks de Governança e Gestão de TI</h1>
   <h2 class="!text-2xl !mt-2">ITIL v4</h2>
   <div class="mt-10 text-sm text-gray-500 space-y-1">
-    <p>Filipe Moreira Coelho · Julia Monteiro de Oliveira · Victor Hugo Vieira Cruz</p>
+    <p>Filipe Moreira Coelho · Julia Monteiro de Oliveira · Victor Hugo Vieira Cruz · Gesse Ferreira</p>
     <p class="text-xs">Prof.º Ariel Cardoso Mendes | Gestão e Governança em TI</p>
     <p class="text-xs text-gray-400">Goiânia/GO | 2026/1</p>
   </div>
